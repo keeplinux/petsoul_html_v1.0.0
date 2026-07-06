@@ -191,3 +191,25 @@
 
 未完成事项：
 - 同上一阶段
+
+---
+
+日期：2026-07-06
+阶段：参考资料收录
+变更内容：
+- 调研 `VoltAgent/awesome-design-md` 仓库，收录 73 个知名品牌的 DESIGN.md 设计系统文件集合。
+- 新增 `reference/awesome-design-md参考资料.md`，分析其对 Petsoul 官网的 4 个帮助方向。
+- 更新 `reference/README.md`。
+
+决策原因：
+- DESIGN.md 是 AI 辅助设计的新型基础设施——纯文本设计系统，AI 可直接消费。
+- Petsoul 当前纯前端无组件库的技术路线，更需要文本化设计规范约束 UI 一致性。
+- 其中 Airbnb、Stripe、Apple 等品牌与 Petsoul"温暖+情感+科技"调性接近，值得重点借鉴。
+
+影响范围：
+- 新增文件：reference/awesome-design-md参考资料.md
+- 更新文件：reference/README.md、development.log
+
+未完成事项：
+- 尚未下载具体品牌的 DESIGN.md 文件进行深入研究。
+- 尚未为 Petsoul 建立自己的 DESIGN.md。

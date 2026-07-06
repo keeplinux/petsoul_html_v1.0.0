@@ -95,7 +95,7 @@ function animateCount(el, target) {
    ========================================== */
 function initNavbar() {
     // 导航锚点平滑滚动
-    document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(link => {
+    document.querySelectorAll('.navbar-nav a[href^="#"], .navbar-cta[href^="#"], .hero-scroll-indicator[href^="#"], .btn[href^="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
             const target = document.querySelector(link.getAttribute('href'));
             if (target) {
@@ -117,18 +117,20 @@ function initMobileMenu() {
     const mobileMenu = document.createElement('div');
     mobileMenu.className = 'navbar-mobile';
     mobileMenu.innerHTML = `
-        <a href="#products">产品</a>
-        <a href="#data">智能</a>
-        <a href="#twin">数字孪生</a>
+        <a href="#products">饮水机</a>
+        <a href="#data">数据</a>
+        <a href="#twin">数字生命</a>
         <a href="#scenes">场景</a>
-        <a href="#contact">支持</a>
+        <a href="#contact">联系</a>
     `;
     document.body.appendChild(mobileMenu);
 
     toggle.addEventListener('click', () => {
         toggle.classList.toggle('open');
         mobileMenu.classList.toggle('open');
-        document.body.style.overflow = toggle.classList.contains('open') ? 'hidden' : '';
+        const isOpen = toggle.classList.contains('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
     // 点击菜单项关闭
@@ -140,6 +142,7 @@ function initMobileMenu() {
                 target.scrollIntoView({ behavior: 'smooth' });
             }
             toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
             mobileMenu.classList.remove('open');
             document.body.style.overflow = '';
         });

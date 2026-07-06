@@ -15,3 +15,4 @@
 - `AI官网设计参考资料-Leonxlnx-taste-skill.md`：AI 官网设计审美与页面生成规则参考，用于约束 Petsoul 官网的视觉设计、页面布局和设计评审。
 - `AI官网设计参考资料-pbakaus-impeccable.md`：AI 辅助前端设计语言、反模式检查和页面质量评审参考，用于约束 Petsoul 官网的设计上下文、审美边界和上线前检查。
 - `AI官网动效组件参考资料-DavidHDev-react-bits.md`：React 动效组件和创意工具参考，用于启发 Petsoul 官网的文字动画、背景效果、交互组件和视觉细节，但不作为技术栈直接引入。
+- `awesome-design-md参考资料.md`：73 个知名品牌的 DESIGN.md 设计系统文件合集，用于借鉴顶级品牌的设计系统写法，帮助 Petsoul 建立自己的 DESIGN.md 设计规范文档，确保 AI 辅助开发时 UI 保持视觉一致性。

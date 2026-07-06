@@ -3,277 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Petsoul 灵宠 — 用智能科技构建人与宠物的幸福生活。智能饮水机、投食机、自动猫砂盆，让每一次陪伴都更长久、更美好。">
-    <title>Petsoul 灵宠 — 构建人与宠物的幸福生活</title>
+    <meta name="description" content="Petsoul 灵宠 - 用智能硬件、健康数据和数字孪生，构建人与宠物的幸福生活。">
+    <title>Petsoul 灵宠 - 构建人与宠物的幸福生活</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- 导航栏 -->
     <header class="navbar" id="navbar">
-        <div class="container">
-            <a href="#" class="navbar-logo">Petsoul</a>
-            <nav class="navbar-nav">
-                <a href="#products">产品</a>
-                <a href="#data">智能</a>
-                <a href="#twin">数字孪生</a>
+        <div class="container navbar-inner">
+            <a href="#hero" class="navbar-logo">
+                <span class="logo-mark"></span>
+                <span>Petsoul</span>
+            </a>
+            <nav class="navbar-nav" aria-label="主导航">
+                <a href="#products">饮水机</a>
+                <a href="#data">数据</a>
+                <a href="#twin">数字生命</a>
                 <a href="#scenes">场景</a>
-                <a href="#contact">支持</a>
+                <a href="#contact">联系</a>
             </nav>
-            <button class="navbar-cta">立即咨询</button>
-            <!-- 移动端汉堡菜单 -->
-            <button class="navbar-toggle" id="navbarToggle" aria-label="菜单">
+            <a class="navbar-cta" href="#contact">预约咨询</a>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="打开菜单" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
-    <!-- 模块 1: Hero 首屏 -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title" data-animate>
-                    <span class="hero-title-line">构建人与宠物</span>
-                    <span class="hero-title-line hero-title-highlight">的幸福生活</span>
-                </h1>
-                <p class="hero-subtitle" data-animate>
-                    以智能科技连接每一个有爱的家庭，让宠物更健康，让主人更安心
-                </p>
-                <div class="hero-actions" data-animate>
-                    <a href="#products" class="btn btn-primary">了解产品</a>
-                    <a href="#twin" class="btn btn-outline">品牌文化</a>
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-grid"></div>
+            <div class="container hero-layout">
+                <div class="hero-content">
+                    <p class="eyebrow" data-animate>SMART PET LIVING SYSTEM</p>
+                    <h1 class="hero-title" data-animate>
+                        灵宠星球暖泉<br>
+                        构建人与爱宠的幸福生活
+                    </h1>
+                    <p class="hero-subtitle" data-animate>
+                        冷暖双温、多重净化、水电分离、AI 摄像监护与数字孪生能力，合在一台像猫窝一样亲近的智能饮水机里。
+                    </p>
+                    <div class="hero-actions" data-animate>
+                        <a href="#products" class="btn btn-primary">查看暖泉饮水机</a>
+                        <a href="#twin" class="btn btn-ghost">查看数字孪生</a>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-visual" id="heroVisual">
-                <!-- 产品主视觉占位 — 后续替换为 3D 渲染或高质量图片 -->
-                <div class="hero-product-placeholder">
-                    <div class="hero-product-ring"></div>
-                    <div class="hero-product-core"></div>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll-indicator">
-            <span>向下探索</span>
-            <div class="hero-scroll-arrow"></div>
-        </div>
-    </section>
 
-    <!-- 模块 2: 核心产品展示 -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title" data-animate>好的产品，让幸福悄然发生</h2>
-            <p class="section-subtitle" data-animate>从饮水到喂养，从清洁到健康，每一步都为牠和你用心设计</p>
-            <div class="products-grid">
-                <div class="product-card" data-animate>
-                    <div class="product-card-image">
-                        <span class="product-emoji">💧</span>
+                <div class="hero-visual product-hero-visual" data-animate>
+                    <img class="hero-concept-image" src="/images/智能饮水机售卖概念图1.png" alt="灵宠星球暖泉智能饮水机概念图">
+                    <div class="visual-scanline"></div>
+                    <div class="visual-caption">
+                        <span>WARM SPRING WATER STATION</span>
+                        <strong>8°C 冰爽水质 · 45°C 温暖呵护 · 6L 水箱</strong>
                     </div>
-                    <h3 class="product-card-name">智能饮水机</h3>
-                    <p class="product-card-desc">让牠爱上喝水，健康从每一口开始</p>
-                    <div class="product-card-tags">
-                        <span>2.5L 容量</span>
-                        <span>UV 杀菌</span>
-                    </div>
-                    <a href="#" class="product-card-link">了解更多 →</a>
                 </div>
-                <div class="product-card" data-animate>
-                    <div class="product-card-image">
-                        <span class="product-emoji">🍖</span>
+
+                <div class="hero-stats" data-animate aria-label="核心能力">
+                    <div>
+                        <strong>8°C</strong>
+                        <span>夏季清凉饮水</span>
                     </div>
-                    <h3 class="product-card-name">智能投食机</h3>
-                    <p class="product-card-desc">科学喂养不将就，忙碌也能给牠最好的照顾</p>
-                    <div class="product-card-tags">
-                        <span>3L 粮仓</span>
-                        <span>APP 控制</span>
+                    <div>
+                        <strong>45°C</strong>
+                        <span>冬季温暖呵护</span>
                     </div>
-                    <a href="#" class="product-card-link">了解更多 →</a>
-                </div>
-                <div class="product-card" data-animate>
-                    <div class="product-card-image">
-                        <span class="product-emoji">🏠</span>
+                    <div>
+                        <strong>6L</strong>
+                        <span>可拆水箱容量</span>
                     </div>
-                    <h3 class="product-card-name">自动猫砂盆</h3>
-                    <p class="product-card-desc">让家更干净，也让牠的如厕健康一目了然</p>
-                    <div class="product-card-tags">
-                        <span>安全感应</span>
-                        <span>APP 提醒</span>
-                    </div>
-                    <a href="#" class="product-card-link">了解更多 →</a>
                 </div>
             </div>
-        </div>
-    </section>
+            <a class="hero-scroll-indicator" href="#products" aria-label="向下探索">
+                <span>向下探索</span>
+                <i></i>
+            </a>
+        </section>
 
-    <!-- 模块 3: 数据采集能力 -->
-    <section class="data-capture" id="data">
-        <div class="container">
-            <h2 class="section-title" data-animate>懂牠，才是最好的爱</h2>
-            <p class="section-subtitle" data-animate>真实数据记录宠物每一天，让你更了解牠的需求与健康</p>
-            <div class="data-flow">
-                <div class="data-sensors">
-                    <div class="sensor-item" data-animate>
-                        <div class="sensor-icon">📷</div>
-                        <h4>摄像头</h4>
-                        <p>看清牠的日常 · 随时看看牠在做什么</p>
-                    </div>
-                    <div class="sensor-arrow">→</div>
-                    <div class="sensor-item" data-animate>
-                        <div class="sensor-icon">🎤</div>
-                        <h4>麦克风</h4>
-                        <p>听懂牠的情绪 · 异常叫声主动提醒</p>
-                    </div>
-                    <div class="sensor-arrow">→</div>
-                    <div class="sensor-item" data-animate>
-                        <div class="sensor-icon">📡</div>
-                        <h4>传感器</h4>
-                        <p>感知牠的健康 · 饮水进食如厕全记录</p>
-                    </div>
+        <section class="products section-dark" id="products">
+            <div class="container">
+                <div class="section-head" data-animate>
+                    <p class="eyebrow">WARM SPRING DESIGN</p>
+                    <h2 class="section-title">像一座透明小暖泉，把饮水、陪伴和健康感知放在一起</h2>
+                    <p class="section-subtitle">根据你的三视图重构饮水机整体造型：正面猫耳透明罩与摄像头负责识别和互动，右侧 6L 水箱表现容量与可拆结构，底部暖光灯带强化“暖泉”气质。</p>
                 </div>
-                <div class="data-result" data-animate>
-                    <div class="data-card">
-                        <h3>专属健康档案</h3>
-                        <div class="data-metrics">
-                            <div class="metric">
-                                <span class="metric-value" data-count="1200">0</span>
-                                <span class="metric-label">日均饮水/ml</span>
+
+                <div class="water-showcase">
+                    <div class="water-stage" data-animate>
+                        <div class="water-orbit"></div>
+                        <div class="fountain-model showcase-device" role="img" aria-label="根据三视图重构的暖泉智能饮水机完整 3D 造型">
+                            <span class="model-shadow"></span>
+                            <div class="model-side-tank">
+                                <span class="tank-ridges"></span>
+                                <strong>6L</strong>
                             </div>
-                            <div class="metric">
-                                <span class="metric-value" data-count="3">0</span>
-                                <span class="metric-label">进食次数</span>
+                            <div class="model-body">
+                                <span class="model-ear model-ear-left"></span>
+                                <span class="model-ear model-ear-right"></span>
+                                <span class="model-dome"></span>
+                                <span class="model-arch"></span>
+                                <span class="model-camera">
+                                    <i></i>
+                                </span>
+                                <span class="model-status"></span>
+                                <span class="model-spout"></span>
+                                <span class="model-water"></span>
+                                <span class="model-tray"></span>
+                                <span class="model-base"></span>
+                                <span class="model-light-strip"></span>
                             </div>
-                            <div class="metric">
-                                <span class="metric-value" data-count="8500">0</span>
-                                <span class="metric-label">活动步数</span>
+                        </div>
+                        <div class="feature-badge badge-temp">
+                            <strong>8°C / 45°C</strong>
+                            <span>冷暖双温</span>
+                        </div>
+                        <div class="feature-badge badge-camera">
+                            <strong>AI Camera</strong>
+                            <span>远程看护</span>
+                        </div>
+                        <div class="feature-badge badge-tank">
+                            <strong>6L</strong>
+                            <span>可拆水箱</span>
+                        </div>
+                    </div>
+
+                    <div class="water-copy" data-animate>
+                        <p class="product-kicker">PetSoul Warm Spring</p>
+                        <h3>灵宠星球暖泉智能饮水机</h3>
+                        <p>柔和奶油机身、猫耳发光轮廓和透明水仓，让饮水机更像家庭空间里的一件温暖小家具。它不只是供水设备，也是一台记录宠物饮水习惯、远程陪伴和健康变化的智能终端。</p>
+                        <div class="water-palette" aria-label="产品配色">
+                            <span class="swatch swatch-pink"></span>
+                            <span class="swatch swatch-yellow"></span>
+                            <span class="swatch swatch-gray"></span>
+                        </div>
+                        <div class="water-feature-grid">
+                            <div>
+                                <strong>冷暖双温</strong>
+                                <span>夏季清凉，冬季温暖，贴合不同季节饮水偏好。</span>
                             </div>
-                            <div class="metric">
-                                <span class="metric-value" data-count="9.2">0</span>
-                                <span class="metric-label">睡眠时长/h</span>
+                            <div>
+                                <strong>3 合 1 复合滤芯</strong>
+                                <span>PP 棉、活性炭与离子交换树脂，多重过滤水质。</span>
+                            </div>
+                            <div>
+                                <strong>水电分离科技</strong>
+                                <span>安全防漏电，宠物饮水更安心。</span>
+                            </div>
+                            <div>
+                                <strong>AI 摄像监控</strong>
+                                <span>远程看护、互动奖励，随时确认它是否正常饮水。</span>
+                            </div>
+                            <div>
+                                <strong>6L 可拆水箱</strong>
+                                <span>大容量设计，水箱可竖直上提，补水清洗更顺手。</span>
+                            </div>
+                            <div>
+                                <strong>独立污水箱</strong>
+                                <span>分离收集脏水，减少混水和异味，日常清洁更轻松。</span>
+                            </div>
+                            <div>
+                                <strong>高清摄像识别</strong>
+                                <span>远程互动与智能识别结合，让饮水行为更可观察。</span>
+                            </div>
+                            <div>
+                                <strong>数字孪生构建</strong>
+                                <span>从饮水、互动和健康数据中，建立宠物数字生命。</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="privacy-note" data-animate>
-                🔒 数据加密传输 · 主人授权访问 · 不分享给第三方
-            </p>
-        </div>
-    </section>
+        </section>
 
-    <!-- 模块 4: 数字孪生概念 -->
-    <section class="digital-twin" id="twin">
-        <div class="container">
-            <div class="twin-layout">
-                <div class="twin-visual" id="twinCanvas">
-                    <!-- Three.js 渲染区域 — 后续加载 3D 模型 -->
-                    <div class="twin-placeholder">
-                        <div class="twin-placeholder-pet">🐱</div>
-                        <p class="twin-placeholder-hint">3D 数字孪生形象<br>即将呈现</p>
+        <section class="data-capture" id="data">
+            <div class="container data-layout">
+                <div class="section-head section-head-left" data-animate>
+                    <p class="eyebrow">PET HEALTH SIGNALS</p>
+                    <h2 class="section-title">把看不见的健康变化，变成可追踪的数据</h2>
+                    <p class="section-subtitle">摄像头、麦克风与多类传感器协同工作，形成宠物的日常行为时间线。你看到的不只是数字，而是它今天过得好不好。</p>
+                </div>
+
+                <div class="data-panel" data-animate>
+                    <div class="data-panel-top">
+                        <span>Today / Momo</span>
+                        <strong>Health Index 92</strong>
+                    </div>
+                    <div class="data-metrics">
+                        <div class="metric">
+                            <span class="metric-value" data-count="1200">0</span>
+                            <span class="metric-label">饮水 ml</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" data-count="3">0</span>
+                            <span class="metric-label">进食次数</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" data-count="8500">0</span>
+                            <span class="metric-label">活动步数</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" data-count="9.2">0</span>
+                            <span class="metric-label">睡眠小时</span>
+                        </div>
+                    </div>
+                    <div class="signal-list">
+                        <div><span></span>饮水曲线稳定</div>
+                        <div><span></span>夜间活动略高</div>
+                        <div><span></span>如厕频率正常</div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="digital-twin section-dark" id="twin">
+            <div class="container twin-layout">
+                <div class="twin-visual" data-animate aria-hidden="true">
+                    <div class="twin-core">
+                        <div class="twin-face">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="twin-ring twin-ring-one"></div>
+                    <div class="twin-ring twin-ring-two"></div>
+                    <div class="twin-tag twin-tag-top">emotion memory</div>
+                    <div class="twin-tag twin-tag-bottom">daily behavior model</div>
+                </div>
+
                 <div class="twin-content" data-animate>
-                    <h2 class="section-title">把爱，留在这个数字世界里</h2>
-                    <p class="twin-text">
-                        每一段陪伴都值得被永恒珍藏。
+                    <p class="eyebrow">DIGITAL SOUL</p>
+                    <h2 class="section-title">让陪伴，沉淀成一只独一无二的数字生命</h2>
+                    <p>
+                        智能硬件采集的饮水、进食、活动、声音和如厕数据，会持续构建宠物的行为画像。它不是冷冰冰的档案，而是一份关于习惯、情绪和记忆的长期记录。
                     </p>
-                    <p class="twin-text-secondary">
-                        智能硬件采集的每一次饮水、每一餐进食、每一个奔跑的瞬间，都会汇聚成一只独一无二的数字宠物。牠在虚拟世界里继续成长、继续陪伴，让你们的幸福故事永不落幕。
-                    </p>
-                    <p class="twin-privacy">
-                        你拥有数据的完全控制权，随时可查看、导出或删除。这是属于你和牠的私密记忆。
+                    <p>
+                        你拥有数据的完全控制权，可查看、导出或删除。这份数字记忆只属于你和它。
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 模块 5: 应用场景 -->
-    <section class="scenes" id="scenes">
-        <div class="container">
-            <h2 class="section-title" data-animate>幸福，藏在每一个日常里</h2>
-            <div class="scenes-list">
-                <div class="scene-item" data-animate>
-                    <div class="scene-image">
-                        <span class="scene-emoji">💧</span>
-                    </div>
-                    <div class="scene-text">
-                        <h3>多喝水，更健康</h3>
-                        <p>智能饮水机引导宠物爱上喝水，实时监测数据让你随时了解牠的饮水情况，小习惯守护大健康。</p>
-                    </div>
+        <section class="scenes" id="scenes">
+            <div class="container">
+                <div class="section-head" data-animate>
+                    <p class="eyebrow">EVERYDAY MOMENTS</p>
+                    <h2 class="section-title">高级科技感，最终要落回真实生活</h2>
                 </div>
-                <div class="scene-item scene-reverse" data-animate>
-                    <div class="scene-image">
-                        <span class="scene-emoji">🍖</span>
-                    </div>
-                    <div class="scene-text">
-                        <h3>吃得好，长得壮</h3>
-                        <p>即使加班出差，也能通过手机为牠远程投喂，定时定量、科学搭配，每一餐都不缺席。</p>
-                    </div>
-                </div>
-                <div class="scene-item" data-animate>
-                    <div class="scene-image">
-                        <span class="scene-emoji">✨</span>
-                    </div>
-                    <div class="scene-text">
-                        <h3>干净的家，自在的牠</h3>
-                        <p>自动感应清洁告别异味，如厕数据同步健康分析，让家更舒适，让牠更自由。</p>
-                    </div>
+
+                <div class="scenes-list">
+                    <article class="scene-item" data-animate>
+                        <span class="scene-index">01</span>
+                        <h3>离家时，依然放心</h3>
+                        <p>远程查看饮水、进食和活动状态，不再靠猜测判断它今天是否正常。</p>
+                    </article>
+                    <article class="scene-item" data-animate>
+                        <span class="scene-index">02</span>
+                        <h3>异常前，先有提醒</h3>
+                        <p>持续数据比单次观察更敏感，帮助主人更早发现习惯变化。</p>
+                    </article>
+                    <article class="scene-item" data-animate>
+                        <span class="scene-index">03</span>
+                        <h3>分别后，记忆仍在</h3>
+                        <p>把每一天的陪伴沉淀为数字档案，为未来的数字孪生留下真实基础。</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 模块 6: CTA 收口 -->
-    <section class="cta" id="contact">
-        <div class="container">
-            <h2 class="section-title" data-animate>和 Petsoul 一起，开启幸福旅程</h2>
-            <p class="cta-text" data-animate>
-                从第一台智能硬件开始，用科技重新定义你与宠物的每一天。
-            </p>
-            <div class="cta-actions" data-animate>
-                <a href="#" class="btn btn-primary btn-large btn-glow">立即咨询</a>
-                <a href="#" class="btn btn-outline">了解更多</a>
+        <section class="cta section-dark" id="contact">
+            <div class="container cta-inner" data-animate>
+                <p class="eyebrow">PESOUL NEXT</p>
+                <h2 class="section-title">现在开始，为 Petsoul 官网搭好第一版视觉基座</h2>
+                <p class="cta-text">当真实产品图、品牌字体和 3D 模型准备好后，这套暗色科技风结构可以继续升级为正式发布级官网。</p>
+                <div class="cta-actions">
+                    <a href="mailto:hello@petsoul.ai" class="btn btn-primary">联系 Petsoul</a>
+                    <a href="#hero" class="btn btn-ghost">回到顶部</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- 页脚 -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <span class="footer-logo">Petsoul</span>
-                    <p>构建人与宠物的幸福生活</p>
-                    <p class="footer-company">上海灵宠科技有限公司</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h4>产品</h4>
-                        <a href="#">智能饮水机</a>
-                        <a href="#">智能投食机</a>
-                        <a href="#">自动猫砂盆</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>品牌</h4>
-                        <a href="#">品牌文化</a>
-                        <a href="#">技术研发</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>支持</h4>
-                        <a href="#">使用说明</a>
-                        <a href="#">常见问题</a>
-                        <a href="#">售后政策</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>合作</h4>
-                        <a href="#">渠道合作</a>
-                        <a href="#">媒体联系</a>
-                    </div>
-                </div>
+        <div class="container footer-inner">
+            <div>
+                <span class="footer-logo">Petsoul</span>
+                <p>构建人与宠物的幸福生活</p>
+                <p class="footer-company">上海灵宠科技有限公司</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 上海灵宠科技有限公司. All rights reserved.</p>
-                <a href="#">隐私政策</a>
+            <div class="footer-links">
+                <a href="#products">设备</a>
+                <a href="#data">数据</a>
+                <a href="#twin">数字生命</a>
+                <a href="#contact">联系</a>
             </div>
+            <p class="footer-copy">&copy; 2026 上海灵宠科技有限公司. All rights reserved.</p>
         </div>
     </footer>
 
