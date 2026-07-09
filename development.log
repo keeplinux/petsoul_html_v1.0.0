@@ -533,3 +533,25 @@
 
 未完成事项：
 - 如视频主体在实际浏览器中偏离中心，可继续微调 `object-position` 或对视频源做裁切/抠像处理。
+
+---
+
+日期：2026-07-09
+阶段：GitHub Pages 展示链接部署准备
+
+变更内容：
+- 采用 `gh-pages` 分支方案发布 `static/` 目录内容，避免依赖 GitHub Actions workflow 权限。
+- 将 `static/index.html` 中的 CSS、JS、图片和视频引用从根路径改为相对路径，适配 `https://keeplinux.github.io/petsoul_html_v1.0.0/` 这种项目子路径。
+- 将 `static/css/style.css` 中的背景图引用从 `/images/...` 改为 `../images/...`，确保 GitHub Pages 和本地服务均可正确加载素材。
+
+决策原因：
+- 用户希望生成一个“别人拿到链接就能访问”的展示网址，不做商业行为。
+- GitHub Pages 适合当前官网的静态展示场景；当前 Rust 服务仍保留用于本地开发，线上展示直接发布静态资源目录。
+
+影响范围：
+- static/index.html：更新静态资源相对路径与版本号。
+- static/css/style.css：更新背景图相对路径。
+- gh-pages 分支：用于托管最终展示版静态文件。
+
+未完成事项：
+- 推送 `gh-pages` 分支并开启 GitHub Pages 后，公开访问地址预计为 `https://keeplinux.github.io/petsoul_html_v1.0.0/`。

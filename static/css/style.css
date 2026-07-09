@@ -353,7 +353,7 @@ section {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.38) 0%, rgba(5, 6, 16, 0.24) 42%, rgba(5, 6, 16, 0.03) 72%, rgba(5, 6, 16, 0.12) 100%),
         linear-gradient(180deg, transparent, rgba(5, 6, 16, 0.18)),
-        url("/images/官网头部背景参考风格1.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格1.png") center / cover no-repeat;
 }
 
 .hero-backdrop {
@@ -810,7 +810,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.22), rgba(5, 6, 16, 0.10) 52%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.06) 46%, rgba(5, 6, 16, 0.22)),
-        url("/images/官网头部背景参考风格2.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格2.png") center / cover no-repeat;
 }
 
 .service-grid,
@@ -933,7 +933,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.05) 42%, rgba(5, 6, 16, 0.22)),
-        url("/images/官网头部背景参考风格3.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格3.png") center / cover no-repeat;
 }
 
 .showcase-layout,
@@ -1083,7 +1083,7 @@ section h2 {
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 52%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(102, 240, 220, 0.05), transparent 64%),
         linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.08) 44%, rgba(5, 6, 16, 0.22)),
-        url("/images/官网头部背景参考风格4.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格4.png") center / cover no-repeat;
 }
 
 .data-console {
@@ -1166,7 +1166,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 52%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.05) 48%, rgba(5, 6, 16, 0.22)),
-        url("/images/官网头部背景参考风格5.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格5.png") center / cover no-repeat;
 }
 
 .twin-visual {
@@ -1278,7 +1278,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.05) 46%, rgba(5, 6, 16, 0.22)),
-        url("/images/官网头部背景参考风格6.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格6.png") center / cover no-repeat;
 }
 
 .scene-card {
@@ -1362,7 +1362,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.05) 42%, rgba(5, 6, 16, 0.22)),
-        url("/images/官网头部背景参考风格7.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格7.png") center / cover no-repeat;
 }
 
 .contact-layout {
@@ -1389,7 +1389,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(3, 4, 10, 0.20), rgba(3, 4, 10, 0.08) 52%, rgba(3, 4, 10, 0.18)),
         linear-gradient(180deg, rgba(3, 4, 10, 0.16), rgba(3, 4, 10, 0.05)),
-        url("/images/官网头部背景参考风格8.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格8.png") center / cover no-repeat;
 }
 
 .footer-layout {
