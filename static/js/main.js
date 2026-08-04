@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initShapeBlurCards();
     initRibbonsCursor();
+    initHeroTextLoop();
 });
 
 function initNavbarState() {
@@ -161,8 +162,8 @@ function initRibbonsCursor() {
     const settings = {
         baseSpring: 0.03,
         baseFriction: 0.9,
-        baseThickness: 30,
-        pointCount: 48,
+        baseThickness: 20,
+        pointCount: 24,
         speedMultiplier: 0.58,
         maxAge: 520,
         effectAmplitude: 2.2,
@@ -190,7 +191,7 @@ function initRibbonsCursor() {
     let frameId = 0;
 
     const resize = () => {
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        dpr = Math.min(window.devicePixelRatio || 1, 1.5);
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = Math.ceil(width * dpr);
@@ -200,19 +201,11 @@ function initRibbonsCursor() {
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    const updatePointer = (event) => {
-        pointer.active = true;
-        pointer.x = event.clientX;
-        pointer.y = event.clientY;
-    };
-
     const drawRibbon = (ribbon, time) => {
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
-        ctx.shadowColor = ribbon.color;
-        ctx.shadowBlur = 18;
 
         for (let i = ribbon.points.length - 1; i > 1; i -= 1) {
             const current = ribbon.points[i];
@@ -230,6 +223,9 @@ function initRibbonsCursor() {
 
         ctx.restore();
     };
+
+    const IDLE_STOP_MS = 300;
+    let idleTimeout = 0;
 
     const tick = (now) => {
         const dt = Math.min(now - lastTime, 48);
@@ -261,19 +257,69 @@ function initRibbonsCursor() {
             });
         }
 
-        frameId = requestAnimationFrame(tick);
+        // 只在指针活跃时继续渲染；空闲后完全停止，避免 60fps 全屏重绘
+        if (pointer.active) {
+            frameId = requestAnimationFrame(tick);
+        } else {
+            frameId = 0;
+        }
+    };
+
+    const stopLoop = () => {
+        if (frameId) {
+            cancelAnimationFrame(frameId);
+            frameId = 0;
+        }
+    };
+
+    const startLoop = () => {
+        if (!frameId) {
+            lastTime = performance.now();
+            frameId = requestAnimationFrame(tick);
+        }
+    };
+
+    const updatePointer = (event) => {
+        pointer.active = true;
+        pointer.x = event.clientX;
+        pointer.y = event.clientY;
+        startLoop();
+        clearTimeout(idleTimeout);
+        idleTimeout = setTimeout(() => {
+            pointer.active = false;
+        }, IDLE_STOP_MS);
+    };
+
+    const stopPointer = () => {
+        pointer.active = false;
+        clearTimeout(idleTimeout);
+        stopLoop();
     };
 
     resize();
     window.addEventListener('resize', resize, { passive: true });
     window.addEventListener('pointermove', updatePointer, { passive: true });
-    window.addEventListener('pointerleave', () => {
-        pointer.active = false;
-    });
-    window.addEventListener('blur', () => {
-        pointer.active = false;
-    });
-    frameId = requestAnimationFrame(tick);
+    window.addEventListener('pointerleave', stopPointer);
+    window.addEventListener('blur', stopPointer);
+}
+
+function initHeroTextLoop() {
+    const svg = document.querySelector('.curved-loop-svg');
+    if (!svg || typeof svg.pauseAnimations !== 'function') return;
+
+    const section = svg.closest('.hero') || svg;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                svg.unpauseAnimations();
+            } else {
+                svg.pauseAnimations();
+            }
+        });
+    }, { threshold: 0 });
+
+    observer.observe(section);
 }
 
 function hexToRgba(hex, alpha) {

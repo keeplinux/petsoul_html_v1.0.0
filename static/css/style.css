@@ -353,7 +353,7 @@ section {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.38) 0%, rgba(5, 6, 16, 0.24) 42%, rgba(5, 6, 16, 0.03) 72%, rgba(5, 6, 16, 0.12) 100%),
         linear-gradient(180deg, transparent, rgba(5, 6, 16, 0.18)),
-        url("../images/官网头部背景参考风格1.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格1.jpg") center / cover no-repeat;
 }
 
 .hero-backdrop {
@@ -521,13 +521,13 @@ section h2 {
 .hero-title-glitch::before {
     left: -10px;
     text-shadow: var(--before-shadow);
-    animation: animate-glitch var(--before-duration) infinite linear alternate-reverse;
+    animation: animate-glitch var(--before-duration) 1 linear alternate-reverse;
 }
 
 .hero-title-glitch::after {
     left: 10px;
     text-shadow: var(--after-shadow);
-    animation: animate-glitch var(--after-duration) infinite linear alternate-reverse;
+    animation: animate-glitch var(--after-duration) 1 linear alternate-reverse;
 }
 
 @keyframes animate-glitch {
@@ -711,7 +711,7 @@ section h2 {
     color: var(--text);
 }
 
-.hero-video-panel {
+.hero-product-panel {
     min-height: clamp(360px, 38vw, 560px);
     overflow: visible;
     border: 0;
@@ -729,7 +729,7 @@ section h2 {
     mask-composite: intersect;
 }
 
-.hero-video-panel::before {
+.hero-product-panel::before {
     content: "";
     position: absolute;
     inset: 8%;
@@ -742,7 +742,7 @@ section h2 {
     pointer-events: none;
 }
 
-.hero-video-panel::after {
+.hero-product-panel::after {
     content: "";
     position: absolute;
     inset: -2px;
@@ -752,22 +752,27 @@ section h2 {
     pointer-events: none;
 }
 
-.hero-video {
+.hero-product-img {
     position: relative;
     z-index: 1;
     display: block;
     width: 100%;
     min-height: clamp(360px, 38vw, 560px);
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     border-radius: inherit;
-    opacity: 0.92;
-    filter: saturate(1.08) contrast(1.05) brightness(0.98);
-    transform: scale(1.035);
+    opacity: 1;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.hero-video-glow {
+.hero-product-img:hover {
+    transform: scale(1.02);
+}
+
+.hero-product-glow {
     position: absolute;
     inset: 18% 20% 12%;
     z-index: 3;
@@ -810,7 +815,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.22), rgba(5, 6, 16, 0.10) 52%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.06) 46%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格2.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格2.jpg") center / cover no-repeat;
 }
 
 .service-grid,
@@ -830,8 +835,6 @@ section h2 {
         linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.014)),
         rgba(18, 20, 38, 0.24);
     box-shadow: var(--shadow);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
 }
 
 .service-card {
@@ -933,7 +936,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.05) 42%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格3.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格3.jpg") center / cover no-repeat;
 }
 
 .showcase-layout,
@@ -1083,7 +1086,7 @@ section h2 {
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 52%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(102, 240, 220, 0.05), transparent 64%),
         linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.08) 44%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格4.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格4.jpg") center / cover no-repeat;
 }
 
 .data-console {
@@ -1166,7 +1169,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 52%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.05) 48%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格5.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格5.jpg") center / cover no-repeat;
 }
 
 .twin-visual {
@@ -1278,7 +1281,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.05) 46%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格6.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格6.jpg") center / cover no-repeat;
 }
 
 .scene-card {
@@ -1362,7 +1365,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.05) 42%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格7.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格7.jpg") center / cover no-repeat;
 }
 
 .contact-layout {
@@ -1372,8 +1375,6 @@ section h2 {
         linear-gradient(145deg, rgba(255, 255, 255, 0.026), rgba(255, 255, 255, 0.008)),
         rgba(18, 20, 38, 0.11);
     box-shadow: 0 18px 54px rgba(6, 8, 18, 0.16);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 .contact-actions {
@@ -1389,7 +1390,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(3, 4, 10, 0.20), rgba(3, 4, 10, 0.08) 52%, rgba(3, 4, 10, 0.18)),
         linear-gradient(180deg, rgba(3, 4, 10, 0.16), rgba(3, 4, 10, 0.05)),
-        url("../images/官网头部背景参考风格8.png") center / cover no-repeat;
+        url("../images/官网头部背景参考风格8.jpg") center / cover no-repeat;
 }
 
 .footer-layout {
@@ -1524,8 +1525,8 @@ section h2 {
         min-height: 300px;
     }
 
-    .hero-video-panel,
-    .hero-video {
+    .hero-product-panel,
+    .hero-product-img {
         min-height: 320px;
     }
 
