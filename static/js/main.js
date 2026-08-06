@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initShapeBlurCards();
     initPageReveal();
     initHeroTextLoop();
+    initPostcardModal();
 });
 
 function initNavbarState() {
@@ -213,7 +214,9 @@ function initPageReveal() {
     };
 
     const carveInk = (x, y, radius, alpha, seed) => {
-        const gradient = ctx.createRadialGradient(x, y, radius * 0.22, x, y, radius);
+        const outerRadius = Math.max(0, Number(radius) || 0);
+        const innerRadius = Math.min(outerRadius, outerRadius * 0.22);
+        const gradient = ctx.createRadialGradient(x, y, innerRadius, x, y, outerRadius);
         gradient.addColorStop(0, `rgba(0, 0, 0, ${0.96 * alpha})`);
         gradient.addColorStop(0.58, `rgba(0, 0, 0, ${0.86 * alpha})`);
         gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
@@ -301,4 +304,32 @@ function initHeroTextLoop() {
     }, { threshold: 0 });
 
     observer.observe(section);
+}
+
+function initPostcardModal() {
+    const modal = document.getElementById('postcardModal');
+    const trigger = document.querySelector('[data-postcard-open]');
+    if (!modal || !trigger) return;
+
+    const close = () => {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('postcard-open');
+    };
+
+    trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('postcard-open');
+        modal.querySelector('.postcard-close')?.focus();
+    });
+
+    modal.querySelectorAll('[data-postcard-close]').forEach((button) => {
+        button.addEventListener('click', close);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
 }
