@@ -5,36 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Petsoul 灵宠 - 用智能硬件、健康数据和宠物数字孪生，构建人与爱宠的幸福生活。">
     <title>Petsoul 灵宠 - 智能硬件与宠物数字孪生</title>
-    <link rel="stylesheet" href="css/style.css?v=20260804-perf2">
+    <link rel="stylesheet" href="css/style.css?v=20260806-font5">
 </head>
 <body>
-    <canvas class="cursor-ribbons" id="cursorRibbons" aria-hidden="true"></canvas>
-
-    <header class="site-header" id="navbar">
-        <div class="container nav-shell">
-            <a class="brand" href="#hero" aria-label="Petsoul 首页">
-                <span class="brand-mark"></span>
-                <span>Petsoul</span>
-            </a>
-
-            <nav class="nav-links" aria-label="主导航">
-                <a href="#hero">Home</a>
-                <a href="#products">Products</a>
-                <a href="#data">Data</a>
-                <a href="#twin">Twin</a>
-                <a href="#scenes">Scenes</a>
-                <a href="#contact">Contact</a>
-            </nav>
-
-            <a class="quote-button" href="#contact">预约咨询</a>
-
-            <button class="nav-toggle" id="navbarToggle" aria-label="打开菜单" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
+    <canvas class="page-reveal-mask" id="pageRevealMask" aria-hidden="true"></canvas>
 
     <main>
         <section class="hero" id="hero">
@@ -47,9 +21,9 @@
 
             <div class="container hero-layout">
                 <div class="hero-copy" data-animate>
-                    <p class="eyebrow">SMART PET LIVING SYSTEM</p>
-                    <h1 class="hero-title" aria-label="灵宠科技 数字生命">
-                        <span class="hero-title-line">灵宠科技</span>
+                    <p class="eyebrow">SILIFIELD PETSOUL</p>
+                    <h1 class="hero-title" aria-label="硅宠场域 数字生命">
+                        <span class="hero-title-line">硅宠场域</span>
                         <span class="hero-title-line hero-title-glitch" data-text="数字生命">数字生命</span>
                     </h1>
                     <div class="hero-text hero-text-loop" aria-label="冷暖双温、多重净化、水电分离、AI 摄像监护与宠物数字孪生能力，合在一台像猫窝一样亲近的智能饮水机里。">
@@ -65,25 +39,15 @@
                             </text>
                         </svg>
                     </div>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="#products">查看暖泉饮水机</a>
-                        <a class="btn btn-secondary" href="#data">理解数据能力</a>
-                    </div>
                 </div>
 
-                <figure class="hero-image-panel hero-product-panel" data-animate>
-                    <img class="hero-product-img" src="images/暖泉饮水机V1.0样本1.png" alt="灵宠星球暖泉智能饮水机" loading="eager">
-                    <span class="hero-product-glow" aria-hidden="true"></span>
-                </figure>
             </div>
         </section>
 
         <section class="services" id="products">
             <div class="container">
                 <div class="section-heading" data-animate>
-                    <p class="eyebrow">CORE PRODUCT</p>
-                    <h2>灵宠星球暖泉智能饮水机</h2>
-                    <p>产品是官网的销售主角。数字孪生是品牌世界观，先让用户看见硬件，再理解数据和长期陪伴。</p>
+                    <h2>宠物智能饮水舱</h2>
                 </div>
 
                 <div class="service-grid">
@@ -91,21 +55,18 @@
                         <span class="card-index">01</span>
                         <h3>冷暖双温</h3>
                         <p>8°C 冰爽水质与 45°C 温暖呵护，贴合不同季节的饮水偏好。</p>
-                        <a href="#showcase">Learn More</a>
                     </article>
 
                     <article class="service-card" data-animate>
                         <span class="card-index">02</span>
                         <h3>多重净化</h3>
                         <p>3 合 1 复合滤芯过滤水质，配合水电分离结构，让宠物饮水更安心。</p>
-                        <a href="#showcase">Learn More</a>
                     </article>
 
                     <article class="service-card" data-animate>
                         <span class="card-index">03</span>
                         <h3>AI 摄像监护</h3>
                         <p>远程看护、饮水识别和互动记录，为健康数据与数字孪生提供真实基础。</p>
-                        <a href="#data">Learn More</a>
                     </article>
                 </div>
             </div>
@@ -114,8 +75,7 @@
         <section class="showcase" id="showcase">
             <div class="container showcase-layout">
                 <div class="showcase-copy" data-animate>
-                    <p class="eyebrow">RECENT PRODUCT VISION</p>
-                    <h2>把一台饮水机，做成家庭里的小暖泉</h2>
+                    <h2>智能饮水舱，星空回响</h2>
                     <p>
                         柔和机身、猫耳轮廓、透明水仓、独立污水箱与 6L 可拆水箱，让智能硬件不再像冷冰冰的设备，而像宠物每天都会靠近的生活家具。
                     </p>
@@ -146,7 +106,6 @@
         <section class="data-section" id="data">
             <div class="container data-layout">
                 <div class="data-copy" data-animate>
-                    <p class="eyebrow">PET HEALTH SIGNALS</p>
                     <h2>把看不见的健康变化，<br>变成可追踪的数据</h2>
                     <p>
                         摄像头、麦克风与传感器记录饮水、进食、活动、声音和如厕习惯。你看到的不只是数字，而是它今天过得好不好。
@@ -212,7 +171,6 @@
         <section class="scenes" id="scenes">
             <div class="container">
                 <div class="section-heading" data-animate>
-                    <p class="eyebrow">EVERYDAY MOMENTS</p>
                     <h2>高级科技感，最终要落回真实生活</h2>
                     <p>离家、异常提醒、宠物记忆，这些才是智能硬件真正打动主人的场景。</p>
                 </div>
@@ -240,7 +198,6 @@
         <section class="contact-section" id="contact">
             <div class="container contact-layout">
                 <div data-animate>
-                    <p class="eyebrow">PETSOUL NEXT</p>
                     <h2>预约 Petsoul 暖泉智能饮水机</h2>
                     <p>成为首批体验用户，或获取渠道合作、产品资料和后续智能硬件矩阵信息。</p>
                 </div>
@@ -255,20 +212,14 @@
     <footer class="site-footer">
         <div class="container footer-layout">
             <div>
-                <strong>Petsoul</strong>
+                <strong>SiliField</strong>
                 <p>构建人与宠物的幸福生活</p>
-                <p>上海灵宠科技有限公司</p>
+                <p>上海硅宠场域科技有限公司</p>
             </div>
-            <nav class="footer-links" aria-label="页脚导航">
-                <a href="#products">Products</a>
-                <a href="#data">Data</a>
-                <a href="#twin">Twin</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <small>&copy; 2026 上海灵宠科技有限公司. All rights reserved.</small>
+            <small>&copy; 2026 上海硅宠场域科技有限公司. All rights reserved.</small>
         </div>
     </footer>
 
-    <script src="js/main.js?v=20260804-perf2"></script>
+    <script src="js/main.js?v=20260806-global1"></script>
 </body>
 </html>

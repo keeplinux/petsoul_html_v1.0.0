@@ -3,6 +3,30 @@
    Design reference: reference/素材库/官网参考图1.jpg
    =================================== */
 
+@font-face {
+    font-family: "Huiwen Mincho";
+    src: url("../fonts/huiwen-mincho-subset.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MiSans";
+    src: url("../fonts/misans-subset.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MiSans Medium";
+    src: url("../fonts/misans-medium-nav-subset.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --bg: #080812;
     --bg-deep: #03040a;
@@ -23,7 +47,12 @@
     --container: 1180px;
     --pad: 1.25rem;
     --nav-height: 4.75rem;
-    --font: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+    --font-mincho: "Huiwen Mincho", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+    --font-display: "Questrial", "Century Gothic", "Avenir Next", "MiSans", sans-serif;
+    --font-misans: "MiSans", "PingFang SC", -apple-system, "Microsoft YaHei", sans-serif;
+    --font-heiti: "Heiti SC", "STHeiti", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font: var(--font-sans);
 }
 
 *,
@@ -48,9 +77,12 @@ body {
     color: var(--text);
     font-family: var(--font);
     line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background:
-        linear-gradient(180deg, rgba(255, 94, 168, 0.08), transparent 18%),
-        linear-gradient(125deg, #050610 0%, #141024 36%, #24132a 64%, #070812 100%);
+        linear-gradient(180deg, rgba(255, 94, 168, 0.22), rgba(5, 6, 16, 0.18) 34%, rgba(102, 240, 220, 0.12) 100%),
+        linear-gradient(90deg, rgba(5, 6, 16, 0.44), rgba(5, 6, 16, 0.16) 50%, rgba(5, 6, 16, 0.34)),
+        url("../images/官网头部背景参考风格5.jpg") center / cover no-repeat fixed;
 }
 
 body::before {
@@ -78,15 +110,20 @@ body::after {
     pointer-events: none;
 }
 
-.cursor-ribbons {
+.page-reveal-mask {
     position: fixed;
     inset: 0;
-    z-index: 44;
+    z-index: 0;
+    display: block;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    opacity: 0.78;
-    mix-blend-mode: screen;
+}
+
+main,
+.site-footer {
+    position: relative;
+    z-index: 1;
 }
 
 img {
@@ -97,10 +134,12 @@ img {
 a {
     color: inherit;
     text-decoration: none;
+    font-family: var(--font-misans);
 }
 
 button {
     font: inherit;
+    font-family: var(--font-misans);
 }
 
 .container {
@@ -346,19 +385,20 @@ section {
 
 .hero {
     min-height: 100vh;
+    isolation: isolate;
     display: flex;
     align-items: center;
     overflow: hidden;
     padding: calc(var(--nav-height) + 3.5rem) 0 4.5rem;
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.38) 0%, rgba(5, 6, 16, 0.24) 42%, rgba(5, 6, 16, 0.03) 72%, rgba(5, 6, 16, 0.12) 100%),
-        linear-gradient(180deg, transparent, rgba(5, 6, 16, 0.18)),
-        url("../images/官网头部背景参考风格1.jpg") center / cover no-repeat;
+        linear-gradient(180deg, transparent, rgba(5, 6, 16, 0.18));
 }
 
 .hero-backdrop {
     position: absolute;
     inset: 0;
+    z-index: 0;
     overflow: hidden;
     pointer-events: none;
 }
@@ -444,15 +484,20 @@ section {
     display: grid;
     gap: 3rem;
     align-items: center;
+    justify-items: center;
+    text-align: center;
 }
 
 .hero-copy {
-    max-width: 700px;
+    max-width: 760px;
+    display: grid;
+    justify-items: center;
 }
 
 .eyebrow {
     margin-bottom: 0.8rem;
     color: var(--teal);
+    font-family: "MiSans Medium", var(--font-misans);
     font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.13em;
@@ -462,7 +507,8 @@ section {
 .hero h1,
 section h2 {
     color: var(--text);
-    font-weight: 950;
+    font-family: var(--font-mincho);
+    font-weight: 500;
     line-height: 1.05;
     letter-spacing: 0;
 }
@@ -473,9 +519,11 @@ section h2 {
 
 .hero-title {
     display: grid;
+    justify-items: center;
     gap: 0.02em;
     width: fit-content;
     max-width: 100%;
+    margin: 0 auto;
 }
 
 .hero-title-line {
@@ -483,6 +531,7 @@ section h2 {
     display: block;
     width: fit-content;
     max-width: 100%;
+    margin: 0 auto;
     color: var(--text);
     white-space: nowrap;
     text-shadow: 0 0 22px rgba(255, 255, 255, 0.08);
@@ -521,13 +570,13 @@ section h2 {
 .hero-title-glitch::before {
     left: -10px;
     text-shadow: var(--before-shadow);
-    animation: animate-glitch var(--before-duration) 1 linear alternate-reverse;
+    animation: animate-glitch var(--before-duration) infinite linear alternate-reverse;
 }
 
 .hero-title-glitch::after {
     left: 10px;
     text-shadow: var(--after-shadow);
-    animation: animate-glitch var(--after-duration) 1 linear alternate-reverse;
+    animation: animate-glitch var(--after-duration) infinite linear alternate-reverse;
 }
 
 @keyframes animate-glitch {
@@ -620,13 +669,17 @@ section h2 {
     max-width: 520px;
     margin-top: 1.25rem;
     color: var(--text-soft);
+    font-family: var(--font-mincho);
     font-size: clamp(1rem, 2vw, 1.18rem);
 }
 
 .hero-text-loop {
-    width: min(650px, 100%);
+    width: min(650px, calc(100vw - 2rem));
+    max-width: none;
     height: 102px;
-    margin-top: 0.75rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
 }
 
@@ -644,6 +697,7 @@ section h2 {
 
 .curved-loop-svg text {
     fill: rgba(238, 255, 252, 0.88);
+    font-family: var(--font-mincho);
     font-size: 56px;
     font-weight: 900;
     letter-spacing: 0.02em;
@@ -806,6 +860,7 @@ section h2 {
 .contact-layout p {
     margin-top: 0.75rem;
     color: var(--text-soft);
+    font-family: var(--font-misans);
     font-size: 1.02rem;
 }
 
@@ -814,8 +869,7 @@ section h2 {
     overflow: hidden;
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.22), rgba(5, 6, 16, 0.10) 52%, rgba(5, 6, 16, 0.18)),
-        linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.06) 46%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格2.jpg") center / cover no-repeat;
+        linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.06) 46%, rgba(5, 6, 16, 0.22));
 }
 
 .service-grid,
@@ -907,6 +961,8 @@ section h2 {
 .scene-card h3 {
     margin-top: 0.55rem;
     color: var(--text);
+    font-family: var(--font-mincho);
+    font-weight: 500;
     font-size: 1.45rem;
     line-height: 1.2;
 }
@@ -915,12 +971,14 @@ section h2 {
 .scene-card p {
     margin-top: 0.75rem;
     color: var(--text-soft);
+    font-family: var(--font-misans);
     font-size: 0.95rem;
 }
 
 .service-card a {
     margin-top: 1.15rem;
     color: var(--text);
+    font-family: "MiSans Medium", var(--font-misans);
     font-size: 0.9rem;
     font-weight: 900;
 }
@@ -935,8 +993,7 @@ section h2 {
     overflow: hidden;
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
-        linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.05) 42%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格3.jpg") center / cover no-repeat;
+        linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.05) 42%, rgba(5, 6, 16, 0.22));
 }
 
 .showcase-layout,
@@ -1085,8 +1142,7 @@ section h2 {
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 52%, rgba(5, 6, 16, 0.18)),
         linear-gradient(180deg, rgba(102, 240, 220, 0.05), transparent 64%),
-        linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.08) 44%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格4.jpg") center / cover no-repeat;
+        linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.08) 44%, rgba(5, 6, 16, 0.22));
 }
 
 .data-console {
@@ -1168,8 +1224,7 @@ section h2 {
     overflow: hidden;
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 52%, rgba(5, 6, 16, 0.18)),
-        linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.05) 48%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格5.jpg") center / cover no-repeat;
+        linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.05) 48%, rgba(5, 6, 16, 0.22));
 }
 
 .twin-visual {
@@ -1184,9 +1239,10 @@ section h2 {
 }
 
 .twin-copy p:not(.eyebrow) {
-    color: rgba(45, 35, 52, 0.92);
-    font-weight: 700;
-    text-shadow: 0 1px 18px rgba(255, 255, 255, 0.34);
+    color: var(--text-soft);
+    font-family: var(--font-misans);
+    font-weight: 400;
+    text-shadow: none;
 }
 
 .twin-silhouette {
@@ -1280,8 +1336,7 @@ section h2 {
     overflow: hidden;
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
-        linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.05) 46%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格6.jpg") center / cover no-repeat;
+        linear-gradient(180deg, rgba(5, 6, 16, 0.18), rgba(5, 6, 16, 0.05) 46%, rgba(5, 6, 16, 0.22));
 }
 
 .scene-card {
@@ -1364,8 +1419,7 @@ section h2 {
     overflow: hidden;
     background:
         linear-gradient(90deg, rgba(5, 6, 16, 0.20), rgba(5, 6, 16, 0.08) 50%, rgba(5, 6, 16, 0.18)),
-        linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.05) 42%, rgba(5, 6, 16, 0.22)),
-        url("../images/官网头部背景参考风格7.jpg") center / cover no-repeat;
+        linear-gradient(180deg, rgba(5, 6, 16, 0.16), rgba(5, 6, 16, 0.05) 42%, rgba(5, 6, 16, 0.22));
 }
 
 .contact-layout {
@@ -1386,27 +1440,27 @@ section h2 {
 .site-footer {
     padding: 2rem 0;
     border-top: 1px solid var(--line);
-    color: rgba(35, 29, 48, 0.94);
+    color: #fff;
     background:
         linear-gradient(90deg, rgba(3, 4, 10, 0.20), rgba(3, 4, 10, 0.08) 52%, rgba(3, 4, 10, 0.18)),
-        linear-gradient(180deg, rgba(3, 4, 10, 0.16), rgba(3, 4, 10, 0.05)),
-        url("../images/官网头部背景参考风格8.jpg") center / cover no-repeat;
+        linear-gradient(180deg, rgba(3, 4, 10, 0.16), rgba(3, 4, 10, 0.05));
 }
 
 .footer-layout {
     display: grid;
     gap: 1.25rem;
+    font-family: var(--font-misans);
 }
 
 .footer-layout strong {
     display: block;
-    color: rgba(29, 24, 42, 0.96);
+    color: #fff;
     font-size: 1.3rem;
 }
 
 .footer-layout p,
 .footer-layout small {
-    color: rgba(55, 47, 70, 0.88);
+    color: #fff;
 }
 
 .footer-links {
@@ -1416,7 +1470,7 @@ section h2 {
 }
 
 .footer-links a {
-    color: rgba(42, 35, 56, 0.92);
+    color: #fff;
 }
 
 [data-animate] {
@@ -1466,7 +1520,11 @@ section h2 {
         display: none;
     }
 
-    .hero-layout,
+    .hero-layout {
+        grid-template-columns: minmax(0, 760px);
+        justify-content: center;
+    }
+
     .showcase-layout,
     .data-layout,
     .twin-layout {
@@ -1587,7 +1645,7 @@ section h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .cursor-ribbons {
+    .page-reveal-mask {
         display: none;
     }
 
@@ -1598,5 +1656,11 @@ section h2 {
         animation-iteration-count: 1 !important;
         transition-duration: 1ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+@media (hover: none) {
+    .page-reveal-mask {
+        display: none;
     }
 }
