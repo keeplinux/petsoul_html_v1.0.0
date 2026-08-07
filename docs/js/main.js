@@ -6,148 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initShapeBlurCards();
     initPageReveal();
-    initHeroTextLoop();
     initPostcardModal();
 });
-
-function initNavbarState() {
-    const navbar = document.getElementById('navbar');
-    if (!navbar) return;
-
-    const update = () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 36);
-    };
-
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-}
-
-function initSmoothNavigation() {
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-        link.addEventListener('click', (event) => {
-            const id = link.getAttribute('href');
-            if (!id || id === '#') return;
-
-            const target = document.querySelector(id);
-            if (!target) return;
-
-            event.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-}
-
-function initScrollAnimations() {
-    const animated = document.querySelectorAll('[data-animate]');
-    if (!animated.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        });
-    }, {
-        threshold: 0.16,
-        rootMargin: '0px 0px -60px 0px',
-    });
-
-    animated.forEach((element) => observer.observe(element));
-}
-
-function initCountUp() {
-    const counters = document.querySelectorAll('[data-count]');
-    if (!counters.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            animateCount(entry.target, parseFloat(entry.target.dataset.count || '0'));
-            observer.unobserve(entry.target);
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach((counter) => observer.observe(counter));
-}
-
-function animateCount(element, target) {
-    const duration = 1400;
-    const start = performance.now();
-    const isDecimal = target % 1 !== 0;
-
-    function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const value = target * eased;
-
-        element.textContent = isDecimal
-            ? value.toFixed(1)
-            : Math.floor(value).toLocaleString();
-
-        if (progress < 1) requestAnimationFrame(tick);
-    }
-
-    requestAnimationFrame(tick);
-}
-
-function initMobileMenu() {
-    const toggle = document.getElementById('navbarToggle');
-    if (!toggle) return;
-
-    const menu = document.createElement('nav');
-    menu.className = 'mobile-menu';
-    menu.setAttribute('aria-label', '移动端导航');
-    menu.innerHTML = `
-        <a href="#hero">Home</a>
-        <a href="#products">Products</a>
-        <a href="#data">Data</a>
-        <a href="#twin">Twin</a>
-        <a href="#scenes">Scenes</a>
-        <a href="#contact">Contact</a>
-    `;
-    document.body.appendChild(menu);
-
-    const close = () => {
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        menu.classList.remove('open');
-        document.body.style.overflow = '';
-    };
-
-    toggle.addEventListener('click', () => {
-        const isOpen = !toggle.classList.contains('open');
-        toggle.classList.toggle('open', isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        menu.classList.toggle('open', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    menu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', close);
-    });
-}
-
-function initShapeBlurCards() {
-    const cards = document.querySelectorAll('.service-card, .scene-card');
-    if (!cards.length) return;
-
-    cards.forEach((card) => {
-        card.addEventListener('pointermove', (event) => {
-            const rect = card.getBoundingClientRect();
-            const x = ((event.clientX - rect.left) / rect.width) * 100;
-            const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-            card.style.setProperty('--mx', `${x.toFixed(2)}%`);
-            card.style.setProperty('--my', `${y.toFixed(2)}%`);
-        });
-
-        card.addEventListener('pointerleave', () => {
-            card.style.setProperty('--mx', '50%');
-            card.style.setProperty('--my', '50%');
-        });
-    });
-}
 
 function initPageReveal() {
     const canvas = document.getElementById('pageRevealMask');
@@ -157,7 +17,7 @@ function initPageReveal() {
     if (!ctx) return;
 
     const settings = {
-        maskColor: 'rgba(9, 8, 18, 0.66)',
+        maskColor: 'rgba(0, 0, 0, 1)',
         startRadius: 10,
         endRadius: 142,
         radiusVariation: 0.42,
@@ -287,23 +147,143 @@ function initPageReveal() {
     window.addEventListener('blur', stopPointer, { passive: true });
 }
 
-function initHeroTextLoop() {
-    const svg = document.querySelector('.curved-loop-svg');
-    if (!svg || typeof svg.pauseAnimations !== 'function') return;
+function initNavbarState() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
 
-    const section = svg.closest('.hero') || svg;
+    const update = () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 36);
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+}
+
+function initSmoothNavigation() {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            const id = link.getAttribute('href');
+            if (!id || id === '#') return;
+
+            const target = document.querySelector(id);
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+}
+
+function initScrollAnimations() {
+    const animated = document.querySelectorAll('[data-animate]');
+    if (!animated.length) return;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                svg.unpauseAnimations();
-            } else {
-                svg.pauseAnimations();
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
         });
-    }, { threshold: 0 });
+    }, {
+        threshold: 0.16,
+        rootMargin: '0px 0px -60px 0px',
+    });
 
-    observer.observe(section);
+    animated.forEach((element) => observer.observe(element));
+}
+
+function initCountUp() {
+    const counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            animateCount(entry.target, parseFloat(entry.target.dataset.count || '0'));
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach((counter) => observer.observe(counter));
+}
+
+function animateCount(element, target) {
+    const duration = 1400;
+    const start = performance.now();
+    const isDecimal = target % 1 !== 0;
+
+    function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = target * eased;
+
+        element.textContent = isDecimal
+            ? value.toFixed(1)
+            : Math.floor(value).toLocaleString();
+
+        if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+}
+
+function initMobileMenu() {
+    const toggle = document.getElementById('navbarToggle');
+    if (!toggle) return;
+
+    const menu = document.createElement('nav');
+    menu.className = 'mobile-menu';
+    menu.setAttribute('aria-label', '移动端导航');
+    menu.innerHTML = `
+        <a href="#hero">首页</a>
+        <a href="#products">产品</a>
+        <a href="#data">数据</a>
+        <a href="#twin">孪生</a>
+        <a href="#scenes">场景</a>
+        <a href="#contact">联系</a>
+    `;
+    document.body.appendChild(menu);
+
+    const close = () => {
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+    };
+
+    toggle.addEventListener('click', () => {
+        const isOpen = !toggle.classList.contains('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        menu.classList.toggle('open', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', close);
+    });
+}
+
+function initShapeBlurCards() {
+    const cards = document.querySelectorAll('.prod-card, .scene-card');
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+        card.addEventListener('pointermove', (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 100;
+            const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+            card.style.setProperty('--mx', `${x.toFixed(2)}%`);
+            card.style.setProperty('--my', `${y.toFixed(2)}%`);
+        });
+
+        card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--mx', '50%');
+            card.style.setProperty('--my', '50%');
+        });
+    });
 }
 
 function initPostcardModal() {

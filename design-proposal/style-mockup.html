@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petsoul 设计提案 v2 · 温暖之光 · 样式图</title>
+<style>
+  /* ============ 设计 Token：温暖之光 ============ */
+  :root {
+    --bg: #1A1512;                 /* 暖夜灰 · 页面深背景 */
+    --bg-2: #201A16;               /* 次级深背景 */
+    --surface: #27201A;            /* 深色卡片 */
+    --line: rgba(255,255,255,.09);
+    --line-strong: rgba(255,255,255,.16);
+    --text: #F7EDE3;               /* 暖白 */
+    --muted: #B8A89A;              /* 深底次级文字 */
+
+    --bg-light: #FAF7F2;           /* 暖白 · 浅背景 */
+    --surface-light: #FFFDF9;      /* 浅色卡片 */
+    --line-light: rgba(58,46,39,.12);
+    --text-light: #3A2E27;         /* 深棕 */
+    --muted-light: #7A6B5F;
+
+    --peach: #F0A06C;              /* 主强调 · 蜜桃暖金 */
+    --peach-deep: #E0894F;
+    --peach-soft: #F6C39B;
+    --sage: #7FB5A0;               /* 次强调 · 苔青 */
+
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --shadow-dark: 0 24px 60px rgba(0,0,0,.35);
+
+    --font-serif: "Songti SC","STSong","Noto Serif SC","Source Han Serif SC","SimSun",serif;
+    --font-sans: "MiSans","PingFang SC",-apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif;
+    --font-geo: "Space Grotesk","Questrial","Avenir Next","Helvetica Neue",Arial,sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); color: var(--text-light); background: var(--bg-light); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* ============ 文档骨架 ============ */
+  .doc-wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 64px 0; border-bottom: 1px solid var(--line-light); }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+  .sec-num { font-family: var(--font-geo); font-size: 13px; letter-spacing: .12em; color: var(--peach-deep); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 28px; color: var(--text-light); }
+  .sec-note { font-size: 14px; color: var(--muted-light); margin-top: 4px; }
+
+  /* 深色预览面板 */
+  .panel { background: var(--bg); color: var(--text); border-radius: var(--radius-lg); padding: 44px; margin-top: 8px; overflow: hidden; position: relative; }
+
+  /* ============ 封面 ============ */
+  .cover { background: var(--bg); color: var(--text); }
+  .cover .doc-wrap { padding: 110px 24px 90px; }
+  .badge { display: inline-block; font-family: var(--font-geo); font-size: 12px; letter-spacing: .2em; color: var(--peach); border: 1px solid rgba(240,160,108,.4); border-radius: 999px; padding: 6px 16px; }
+  .cover h1 { font-family: var(--font-serif); font-size: clamp(34px, 6vw, 56px); margin: 26px 0 8px; font-weight: 700; letter-spacing: .02em; }
+  .cover h1 .g { color: var(--peach); }
+  .cover .sub { color: var(--muted); font-size: 17px; max-width: 620px; }
+  .cover .meta { margin-top: 30px; font-family: var(--font-geo); font-size: 13px; letter-spacing: .1em; color: var(--muted); }
+
+  /* ============ 色板 ============ */
+  .sw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .sw { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--line-light); background: var(--surface-light); }
+  .sw .chip { height: 92px; }
+  .sw .meta { padding: 10px 12px; }
+  .sw .name { font-size: 13px; font-weight: 600; color: var(--text-light); }
+  .sw .hex { font-family: var(--font-geo); font-size: 12px; color: var(--muted-light); }
+  .sw.tag { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 1px dashed rgba(224,137,79,.5); background: rgba(240,160,108,.07); }
+  .sw.tag .hex { font-size: 13px; }
+
+  /* ============ 字体 ============ */
+  .type-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 8px; }
+  .type-card { background: var(--surface-light); border: 1px solid var(--line-light); border-radius: var(--radius-md); padding: 22px 24px; }
+  .type-card .label { font-size: 12px; letter-spacing: .12em; color: var(--muted-light); text-transform: uppercase; margin-bottom: 12px; }
+  .serif-demo { font-family: var(--font-serif); font-size: 34px; font-weight: 700; color: var(--text-light); }
+  .sans-demo { font-family: var(--font-sans); font-size: 19px; color: var(--text-light); }
+  .geo-demo { font-family: var(--font-geo); font-size: 30px; font-weight: 700; color: var(--text-light); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+
+  /* ============ 组件 ============ */
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 8px; }
+  .comp-block { background: var(--surface-light); border: 1px solid var(--line-light); border-radius: var(--radius-md); padding: 26px; }
+  .comp-block .label { font-size: 12px; letter-spacing: .12em; color: var(--muted-light); text-transform: uppercase; margin-bottom: 16px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; padding: 12px 26px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; transition: transform .35s, box-shadow .35s, background .35s; border: none; }
+  .btn-primary { background: linear-gradient(135deg, var(--peach-soft), var(--peach-deep)); color: #1A1512; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(224,137,79,.4); }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--line-strong); }
+  .btn-secondary:hover { background: rgba(255,255,255,.06); transform: translateY(-2px); }
+
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .param { display: flex; gap: 14px; }
+  .param > div { flex: 1; background: var(--bg); color: var(--text); border-radius: var(--radius-md); padding: 18px 16px; text-align: center; }
+  .param strong { font-family: var(--font-geo); font-size: 26px; font-weight: 700; color: var(--peach); display: block; font-variant-numeric: tabular-nums; }
+  .param span { font-size: 13px; color: var(--muted); }
+
+  /* 产品卡 */
+  .prod-card { position: relative; background: var(--bg); border-radius: var(--radius-lg); padding: 30px 26px 24px; overflow: hidden; transition: transform .45s; }
+  .prod-card:hover { transform: perspective(900px) rotateX(3deg) rotateY(-4deg); }
+  .prod-glow { position: absolute; left: 50%; top: 96px; width: 240px; height: 240px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(240,160,108,.5), rgba(240,160,108,.06) 58%, transparent 72%); animation: breathe 4s ease-in-out infinite; }
+  .prod-img { position: relative; height: 220px; display: flex; align-items: flex-end; justify-content: center; }
+  .prod-img img { height: 100%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
+  .prod-name { font-family: var(--font-serif); font-size: 19px; font-weight: 700; margin-top: 18px; color: var(--text); }
+  .prod-line { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* 呼吸光点轨道 */
+  .orbit { position: relative; width: 250px; height: 250px; margin: 6px auto; }
+  .orbit-track { position: absolute; inset: 0; animation: spin 32s linear infinite; }
+  .orbit-track .slot { position: absolute; top: 50%; left: 50%; width: 0; height: 0; }
+  .orbit-track .slot i { position: absolute; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; border-radius: 50%; background: var(--peach); box-shadow: 0 0 14px 3px rgba(240,160,108,.75); animation: breathe-abs 3.2s ease-in-out infinite; }
+  .orbit-pet { position: absolute; top: 50%; left: 50%; width: 98px; height: 98px; margin: -49px 0 0 -49px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(240,160,108,.45); animation: breathe-abs 5s ease-in-out infinite; }
+  .orbit-pet img { width: 100%; height: 100%; object-fit: cover; }
+  .orbit-cap { text-align: center; font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .orbit-cap b { color: var(--peach); font-family: var(--font-geo); }
+
+  /* 隐私区块 */
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .trust-card { background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 20px; }
+  .trust-card .ico { font-size: 22px; margin-bottom: 10px; }
+  .trust-card h4 { font-size: 15px; font-weight: 700; color: var(--sage); margin-bottom: 6px; }
+  .trust-card p { font-size: 13px; color: var(--muted); }
+  .toggle { display: inline-block; width: 40px; height: 22px; border-radius: 999px; background: rgba(127,181,160,.4); position: relative; }
+  .toggle::after { content: ""; position: absolute; top: 3px; left: 20px; width: 16px; height: 16px; border-radius: 50%; background: #fff; }
+
+  /* ============ 首屏演示 ============ */
+  .hero-demo { background: var(--bg); border-radius: var(--radius-lg); position: relative; overflow: hidden; padding: 0; }
+  .hero-bg { position: absolute; inset: 0; background-image: url('../static/images/petsoul-hero-concept.png'); background-size: cover; background-position: center 40%; opacity: .5; }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,21,18,.72), rgba(26,21,18,.9) 70%, var(--bg)); }
+  .hero-inner { position: relative; display: grid; grid-template-columns: 1.25fr 1fr; align-items: center; gap: 20px; padding: 84px 56px 92px; min-height: 520px; }
+  .eyebrow { font-family: var(--font-geo); font-size: 12px; letter-spacing: .22em; color: var(--peach); }
+  .hero-title { font-family: var(--font-serif); font-size: clamp(30px, 4.6vw, 52px); line-height: 1.18; font-weight: 700; margin: 18px 0 16px; color: var(--text); }
+  .hero-title .g { color: var(--peach); }
+  .hero-desc { color: var(--muted); font-size: 16px; max-width: 440px; margin-bottom: 28px; }
+  .hero-prod { position: relative; display: flex; justify-content: center; align-items: flex-end; height: 400px; }
+  .hero-glow { position: absolute; left: 50%; bottom: 20px; width: 340px; height: 340px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(240,160,108,.5), rgba(240,160,108,.06) 58%, transparent 72%); animation: breathe 5s ease-in-out infinite; }
+  .hero-prod img { position: relative; height: 360px; object-fit: contain; filter: drop-shadow(0 30px 46px rgba(0,0,0,.55)); animation: floaty 6s ease-in-out infinite; }
+
+  /* ============ 区块演示 ============ */
+  .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .scene-card { background: var(--surface-light); border: 1px solid var(--line-light); border-radius: var(--radius-lg); overflow: hidden; }
+  .scene-card .ph { height: 150px; display: flex; align-items: center; justify-content: center; color: var(--muted-light); font-size: 13px; }
+  .scene-card .b { padding: 18px 20px; }
+  .scene-card h4 { font-family: var(--font-serif); font-size: 17px; color: var(--text-light); margin-bottom: 6px; }
+  .scene-card p { font-size: 13px; color: var(--muted-light); }
+
+  .cta-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; background: var(--bg); border-radius: var(--radius-lg); padding: 44px 48px; }
+  .cta-strip h3 { font-family: var(--font-serif); font-size: 24px; color: var(--text); font-weight: 700; }
+  .cta-strip p { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+  /* 页脚示例 */
+  .footer-demo { background: var(--bg); border-radius: var(--radius-lg); padding: 40px 48px; margin-top: 26px; color: var(--text); }
+  .footer-demo .l { font-family: var(--font-geo); letter-spacing: .18em; font-size: 13px; color: var(--peach); }
+  .footer-demo small { display: block; margin-top: 10px; color: var(--muted); }
+
+  /* 动画 */
+  @keyframes breathe { 0%,100% { opacity: .55; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.08); } }
+  @keyframes breathe-abs { 0%,100% { opacity: .55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .prod-glow, .orbit-track, .orbit-track .slot i, .orbit-pet, .hero-glow, .hero-prod img { animation: none !important; }
+  }
+
+  @media (max-width: 760px) {
+    .comp-grid, .type-row { grid-template-columns: 1fr; }
+    .trust-grid, .row { grid-template-columns: 1fr; }
+    .hero-inner { grid-template-columns: 1fr; padding: 56px 28px 72px; }
+    .hero-prod { height: 280px; }
+    .hero-prod img { height: 250px; }
+    .cta-strip { padding: 32px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 封面 ============ -->
+<header class="cover">
+  <div class="doc-wrap">
+    <span class="badge">PETSoul · DESIGN PROPOSAL v2</span>
+    <h1>温暖之光<span class="g"> · </span>Warm Light</h1>
+    <p class="sub">科技是外壳，温暖是内核。用"光"而不是"金属"来表现科技——简约、大气、科技感、温馨、宠物，五者由同一束光统一。</p>
+    <div class="meta">SILIFIELD PETSOUL · 深空 × 暖金 × 真实宠物 · 本页为视觉演示稿</div>
+  </div>
+</header>
+
+<div class="doc-wrap">
+
+<!-- ============ 色彩系统 ============ -->
+<section id="palette">
+  <div class="sec-head">
+    <span class="sec-num">01</span>
+    <div>
+      <div class="sec-title">色彩系统</div>
+      <div class="sec-note">全场只有 1 个主强调色。霓虹粉 / 霓虹青 一律删除。</div>
+    </div>
+  </div>
+
+  <div class="sw-grid">
+    <div class="sw"><div class="chip" style="background:#1A1512"></div><div class="meta"><div class="name">暖夜灰 · 深背景</div><div class="hex">#1A1512</div></div></div>
+    <div class="sw"><div class="chip" style="background:#27201A"></div><div class="meta"><div class="name">深色卡片</div><div class="hex">#27201A</div></div></div>
+    <div class="sw"><div class="chip" style="background:#F7EDE3"></div><div class="meta"><div class="name">深底主文字</div><div class="hex">#F7EDE3</div></div></div>
+    <div class="sw"><div class="chip" style="background:#B8A89A"></div><div class="meta"><div class="name">深底次级文字</div><div class="hex">#B8A89A</div></div></div>
+    <div class="sw"><div class="chip" style="background:#F0A06C"></div><div class="meta"><div class="name">主强调 · 蜜桃暖金</div><div class="hex">#F0A06C</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E0894F"></div><div class="meta"><div class="name">主强调 hover</div><div class="hex">#E0894F</div></div></div>
+    <div class="sw"><div class="chip" style="background:#7FB5A0"></div><div class="meta"><div class="name">次强调 · 苔青</div><div class="hex">#7FB5A0</div></div></div>
+    <div class="sw"><div class="chip" style="background:#FAF7F2; border-bottom:1px solid #eee"></div><div class="meta"><div class="name">暖白 · 浅背景</div><div class="hex">#FAF7F2</div></div></div>
+    <div class="sw"><div class="chip" style="background:#3A2E27"></div><div class="meta"><div class="name">浅底主文字</div><div class="hex">#3A2E27</div></div></div>
+    <div class="sw tag"><div style="font-size:14px;color:#E0894F">✕ 已删除</div><div class="hex">霓虹粉 #ff5ea8 · 霓虹青 #66f0dc（夜店感来源）</div></div>
+  </div>
+</section>
+
+<!-- ============ 字体系统 ============ -->
+<section id="type">
+  <div class="sec-head">
+    <span class="sec-num">02</span>
+    <div>
+      <div class="sec-title">字体系统</div>
+      <div class="sec-note">衬线明体 × 无衬线正文 × 几何数字，三分法统一"温馨×科技"。</div>
+    </div>
+  </div>
+  <div class="type-row">
+    <div class="type-card">
+      <div class="label">Display · 明体（标题）</div>
+      <div class="serif-demo">每一只宠物，都是温暖恒星</div>
+      <div class="sec-note" style="margin-top:10px">宋体 / 思源宋体 / MiSans Serif — 人文、大气</div>
+    </div>
+    <div class="type-card">
+      <div class="label">Body · 无衬线（正文）</div>
+      <div class="sans-demo">虹吸循环、毛细渗透、静音星流道与恒温暖洋层。</div>
+      <div class="sec-note" style="margin-top:10px">MiSans / PingFang SC — 利落、可读</div>
+    </div>
+    <div class="type-card" style="grid-column:1/-1">
+      <div class="label">Numerals · 几何字体（参数/数据）</div>
+      <div class="geo-demo">8°C · 45°C · 6L &nbsp; 1284 次饮水 · 24.7°C 水温</div>
+      <div class="sec-note" style="margin-top:10px">Space Grotesk / Questrial — 等宽 tabular-nums，科技感</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 组件 ============ -->
+<section id="components">
+  <div class="sec-head">
+    <span class="sec-num">03</span>
+    <div>
+      <div class="sec-title">核心组件</div>
+      <div class="sec-note">按钮 · 参数卡 · 产品卡 · 呼吸光点轨道 · 隐私信任</div>
+    </div>
+  </div>
+
+  <div class="comp-grid">
+    <div class="comp-block">
+      <div class="label">Buttons · 按钮</div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#">预约第一枚探针</a>
+        <a class="btn btn-secondary" href="#">了解产品</a>
+      </div>
+    </div>
+
+    <div class="comp-block">
+      <div class="label">Product Spec · 产品参数卡</div>
+      <div class="param">
+        <div><strong>8°C</strong><span>冷星水温</span></div>
+        <div><strong>45°C</strong><span>暖洋恒温</span></div>
+        <div><strong>6L</strong><span>水星球储量</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-grid" style="margin-top:20px">
+    <div class="comp-block" style="background:transparent; border:none; padding:0">
+      <div class="label">Product Card · 产品卡（真实素材）</div>
+      <div class="prod-card">
+        <div class="prod-glow"></div>
+        <div class="prod-img"><img src="../static/images/暖泉饮水机V1.0样本2-cutout.png" alt="暖泉饮水机产品图"></div>
+        <div class="prod-name">恒温暖洋层 · 智能饮水舱</div>
+        <div class="prod-line">它今天喝了 12 次水，水温刚好 26°C。</div>
+      </div>
+    </div>
+
+    <div class="comp-block" style="background:transparent; border:none; padding:0">
+      <div class="label">Data Viz · 呼吸光点轨道</div>
+      <div class="panel" style="padding:34px 26px">
+        <div class="orbit">
+          <div class="orbit-track">
+            <span class="slot" style="transform:rotate(0deg) translateX(122px)"><i></i></span>
+            <span class="slot" style="transform:rotate(45deg) translateX(122px)"><i></i></span>
+            <span class="slot" style="transform:rotate(90deg) translateX(122px)"><i></i></span>
+            <span class="slot" style="transform:rotate(135deg) translateX(122px)"><i></i></span>
+            <span class="slot" style="transform:rotate(180deg) translateX(122px)"><i></i></span>
+            <span class="slot" style="transform:rotate(225deg) translateX(122px)"><i></i></span>
+            <span class="slot" style="transform:rotate(270deg) translateX(122px)"><i></i></span>
+            <span class="slot" style="transform:rotate(315deg) translateX(122px)"><i></i></span>
+          </div>
+          <div class="orbit-pet"><img src="../static/images/postcard-cat.png" alt="猫咪头像"></div>
+        </div>
+        <div class="orbit-cap">今日活动峰值 <b>14:20</b> · 共 <b>32</b> 次靠近 · 比昨日 <b>+6</b>%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-block" style="margin-top:20px">
+    <div class="label">Privacy &amp; Trust · 隐私与信任（新增区块）</div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="ico">🔐</div>
+        <h4>你授权，才采集</h4>
+        <p>摄像头 / 麦克风开关清晰可见，默认关闭，随时一键停用。</p>
+        <div class="toggle" style="margin-top:12px"></div>
+      </div>
+      <div class="trust-card">
+        <div class="ico">🛡️</div>
+        <h4>加密传输与存储</h4>
+        <p>数据在设备端加密后上传，云端静态加密保存。</p>
+      </div>
+      <div class="trust-card">
+        <div class="ico">🖐️</div>
+        <h4>数据控制权在你</h4>
+        <p>随时查看、导出或删除宠物的全部数字数据。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 首屏演示 ============ -->
+<section id="hero">
+  <div class="sec-head">
+    <span class="sec-num">04</span>
+    <div>
+      <div class="sec-title">首屏 Hero 演示</div>
+      <div class="sec-note">真实 hero 概念图压暗 + 产品浮光 + 明体大字 + 宠物同在。</div>
+    </div>
+  </div>
+
+  <div class="hero-demo">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">SILIFIELD PETSOUL · WARM STAR SYSTEM</div>
+        <h1 class="hero-title">每一只宠物<br>都是<span class="g">温暖恒星</span></h1>
+        <p class="hero-desc">以硅基探针记录每一次饮水与陪伴，把体温、习惯与记忆，汇成独一无二的数字生命。</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#">预约第一枚探针</a>
+          <a class="btn btn-secondary" href="#">了解产品</a>
+        </div>
+      </div>
+      <div class="hero-prod">
+        <div class="hero-glow"></div>
+        <img src="../static/images/暖泉饮水机V1.0样本1-cutout.png" alt="暖泉饮水机首屏产品">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 区块演示 ============ -->
+<section id="sections">
+  <div class="sec-head">
+    <span class="sec-num">05</span>
+    <div>
+      <div class="sec-title">分区演示</div>
+      <div class="sec-note">产品线 · 场景 · 数字孪生 · CTA 收口 · 页脚</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="prod-card">
+      <div class="prod-glow" style="animation-delay:.3s"></div>
+      <div class="prod-img"><img src="../static/images/暖泉饮水机V1.0样本1-cutout.png" alt="产品一"></div>
+      <div class="prod-name">智能饮水舱</div>
+      <div class="prod-line">8°C 清凉 / 45°C 恒温，虹吸循环。</div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-glow" style="animation-delay:.6s"></div>
+      <div class="prod-img"><img src="../static/images/暖泉饮水机V1.0样本2-cutout.png" alt="产品二"></div>
+      <div class="prod-name">星云渗透滤芯</div>
+      <div class="prod-line">多层毛细纤维自然渗透过滤。</div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-glow" style="animation-delay:.9s"></div>
+      <div class="prod-img"><img src="../static/images/暖泉饮水机V1.0样本3-cutout.png" alt="产品三"></div>
+      <div class="prod-name">硅基探针 · 数据入口</div>
+      <div class="prod-line">记录饮水量、频次与停留时长。</div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:20px">
+    <div class="scene-card">
+      <div class="ph" style="background:linear-gradient(135deg,#F6E7D8,#FAF7F2)">真实宠物摄影 · 离家</div>
+      <div class="b"><h4>离家时，恒星依然明亮</h4><p>远程查看饮水与活动状态，不再靠猜测。</p></div>
+    </div>
+    <div class="scene-card">
+      <div class="ph" style="background:linear-gradient(135deg,#EAF2EE,#FAF7F2)">真实宠物摄影 · 异常</div>
+      <div class="b"><h4>异常前，先有星光提醒</h4><p>持续数据比单次观察更敏感。</p></div>
+    </div>
+    <div class="scene-card">
+      <div class="ph" style="background:linear-gradient(135deg,#F2E7EF,#FAF7F2)">真实宠物摄影 · 归航</div>
+      <div class="b"><h4>分别后，星尘终将归航</h4><p>把陪伴沉淀为数字记忆。</p></div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px">
+    <div class="panel" style="display:grid; grid-template-columns:1.3fr 1fr; gap:26px; align-items:center; padding:48px">
+      <div>
+        <div class="eyebrow">DIGITAL TWIN</div>
+        <h3 style="font-family:var(--font-serif); font-size:26px; margin:12px 0 10px; color:var(--text)">从维度降临，到独一无二的数字生命</h3>
+        <p style="color:var(--muted); font-size:14px">智能硬件采集的长期数据，持续构建它的行为节律，让数字孪生拥有习惯、情绪和记忆。</p>
+      </div>
+      <div class="orbit" style="width:200px; height:200px">
+        <div class="orbit-track">
+          <span class="slot" style="transform:rotate(0deg) translateX(98px)"><i></i></span>
+          <span class="slot" style="transform:rotate(60deg) translateX(98px)"><i></i></span>
+          <span class="slot" style="transform:rotate(120deg) translateX(98px)"><i></i></span>
+          <span class="slot" style="transform:rotate(180deg) translateX(98px)"><i></i></span>
+          <span class="slot" style="transform:rotate(240deg) translateX(98px)"><i></i></span>
+          <span class="slot" style="transform:rotate(300deg) translateX(98px)"><i></i></span>
+        </div>
+        <div class="orbit-pet" style="width:84px;height:84px;margin:-42px 0 0 -42px"><img src="../static/images/postcard-cat.png" alt="数字孪生宠物"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px">
+    <div class="cta-strip">
+      <div>
+        <h3>预约你的第一枚硅基探针</h3>
+        <p>成为首批体验用户，开启宠物恒星的生命观测。</p>
+      </div>
+      <a class="btn btn-primary" href="#">联系 Petsoul</a>
+    </div>
+  </div>
+
+  <div class="footer-demo">
+    <div class="l">SILIFIELD PETSOUL</div>
+    <div style="font-family:var(--font-serif); font-size:16px; margin-top:12px; color:var(--text)">构建人与宠物的幸福生活</div>
+    <small>上海硅宠场域科技有限公司 · © 2026 All rights reserved.</small>
+  </div>
+</section>
+
+</div>
+
+<footer style="padding:40px 0 60px; text-align:center; font-size:12px; color:var(--muted-light); font-family:var(--font-geo); letter-spacing:.08em">
+  PETSOUL DESIGN PROPOSAL v2 · 温暖之光 WARM LIGHT
+</footer>
+
+</body>
+</html>

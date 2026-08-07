@@ -3,67 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="硅宠场域 Silifield - 以硅基探针记录宠物恒星的生命数据，构建从维度降临到数字孪生、星尘归航的温暖生命体系。">
+    <meta name="description" content="硅宠场域 Silifield - 以硅基探针记录宠物恒星的生命数据，从饮水开始，构建从数据采集到数字孪生的温暖生命体系。">
     <title>硅宠场域 Silifield - 每一只宠物都是温暖恒星</title>
-    <link rel="stylesheet" href="css/style.css?v=20260806-feedback2">
+    <link rel="stylesheet" href="css/style.css?v=20260807-warm6">
 </head>
 <body>
     <canvas class="page-reveal-mask" id="pageRevealMask" aria-hidden="true"></canvas>
 
+    <header class="site-header" id="navbar">
+        <div class="container nav-shell">
+            <a class="brand" href="#hero">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span class="brand-text">SiliField</span>
+            </a>
+            <nav class="nav-links" aria-label="主导航">
+                <a href="#hero">首页</a>
+                <a href="#products">产品</a>
+                <a href="#data">数据</a>
+                <a href="#twin">孪生</a>
+                <a href="#scenes">场景</a>
+                <a href="#contact">联系</a>
+            </nav>
+            <a class="quote-button" href="#contact">预约探针</a>
+            <button class="nav-toggle" id="navbarToggle" type="button" aria-label="打开菜单" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
     <main>
         <section class="hero" id="hero">
-            <div class="hero-backdrop" aria-hidden="true">
-                <span class="light-thread thread-one"></span>
-                <span class="light-thread thread-two"></span>
-                <span class="petal-shape petal-one"></span>
-                <span class="petal-shape petal-two"></span>
-            </div>
-
             <div class="container hero-layout">
                 <div class="hero-copy" data-animate>
                     <p class="eyebrow">SILIFIELD PETSOUL · WARM STAR SYSTEM</p>
-                    <h1 class="hero-title" aria-label="每一只宠物 都是温暖恒星">
+                    <h1 class="hero-title" aria-label="每一只宠物都是温暖恒星">
                         <span class="hero-title-line">每一只宠物</span>
-                        <span class="hero-title-line hero-title-glitch" data-text="都是温暖恒星">都是温暖恒星</span>
+                        <span class="hero-title-line">都是<span class="g">温暖恒星</span></span>
                     </h1>
-                    <div class="hero-text hero-text-loop" aria-label="每一只宠物都是从硅宠场域降临地球的温暖恒星，硅基探针记录每一次饮水与陪伴，最终构建宠物数字孪生生命体系。">
-                        <svg class="curved-loop-svg" viewBox="0 0 1440 150" aria-hidden="true" focusable="false">
-                            <defs>
-                                <path id="hero-curved-loop-path" d="M 0 78 Q 520 138 1440 78" />
-                            </defs>
-                            <text>
-                                <textPath href="#hero-curved-loop-path" startOffset="0%">
-                                    维度降临、硅基探针、恒星观测、数字孪生、星尘归航 ✦ 维度降临、硅基探针、恒星观测、数字孪生、星尘归航 ✦ 维度降临、硅基探针、恒星观测、数字孪生、星尘归航 ✦
-                                    <animate attributeName="startOffset" from="0%" to="-50%" dur="18s" repeatCount="indefinite" />
-                                </textPath>
-                            </text>
-                        </svg>
+                    <p class="hero-desc">以硅基探针记录每一次饮水与陪伴，把体温、习惯与记忆，汇成独一无二的数字生命。</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#contact">预约第一枚探针</a>
+                        <a class="btn btn-secondary" href="#products">了解产品</a>
                     </div>
                 </div>
 
+                <div class="hero-prod" data-animate aria-label="暖泉智能饮水舱">
+                    <div class="prod-glow"></div>
+                    <img src="images/暖泉饮水机V1.0样本1-cutout.png" alt="暖泉智能饮水舱" decoding="async">
+                </div>
             </div>
         </section>
 
-        <section class="services" id="products">
+        <section class="products" id="products">
             <div class="container">
                 <div class="section-heading" data-animate>
-                    <h2>硅基探针 · 宠物智能饮水舱</h2>
+                    <p class="eyebrow">PRODUCT LINE · 硅基探针</p>
+                    <h2>三枚探针 · 守护它的一天</h2>
+                    <p>从一杯水开始，把日常照料变成看得见的数据。</p>
                 </div>
 
-                <div class="service-grid">
-                    <article class="service-card" data-animate>
-                        <h3>恒温暖洋层</h3>
-                        <p>热对流让水温均匀，8°C 清凉与 45°C 温暖，贴合不同季节的饮水偏好。</p>
+                <div class="product-grid" data-animate>
+                    <article class="prod-card">
+                        <div class="prod-glow"></div>
+                        <div class="prod-img"><img src="images/暖泉饮水机V1.0样本1-cutout.png" alt="智能饮水舱" loading="lazy" decoding="async"></div>
+                        <h3>智能饮水舱</h3>
+                        <p class="prod-line">8°C 清凉 / 45°C 恒温，它今天喝了 12 次水。</p>
+                        <a href="#contact">了解更多 <span aria-hidden="true">→</span></a>
                     </article>
 
-                    <article class="service-card" data-animate>
+                    <article class="prod-card">
+                        <div class="prod-glow"></div>
+                        <div class="prod-img"><img src="images/暖泉饮水机V1.0样本2-cutout.png" alt="星云渗透滤芯" loading="lazy" decoding="async"></div>
                         <h3>星云渗透滤芯</h3>
-                        <p>多层毛细纤维自然渗透过滤，配合水电分离，让每一次饮水都更安心。</p>
+                        <p class="prod-line">多层毛细纤维自然渗透，水电分离更安心。</p>
+                        <a href="#contact">了解更多 <span aria-hidden="true">→</span></a>
                     </article>
 
-                    <article class="service-card" data-animate>
-                        <h3>硅基探针</h3>
-                        <p>记录饮水量、频次与停留时长，把一台饮水舱变成数字生命的数据入口。</p>
+                    <article class="prod-card">
+                        <div class="prod-glow"></div>
+                        <div class="prod-img"><img src="images/暖泉饮水机V1.0样本3-cutout.png" alt="硅基探针数据入口" loading="lazy" decoding="async"></div>
+                        <h3>硅基探针 · 数据入口</h3>
+                        <p class="prod-line">记录饮水量、频次与停留时长，它是数据的第一入口。</p>
+                        <a href="#contact">了解更多 <span aria-hidden="true">→</span></a>
                     </article>
                 </div>
             </div>
@@ -72,23 +95,13 @@
         <section class="showcase" id="showcase">
             <div class="container showcase-layout">
                 <div class="showcase-copy" data-animate>
-                    <h2>硅基探针 星门回响</h2>
-                    <p>
-                        虹吸循环、毛细渗透、静音星流道与恒温暖洋层，把宇宙物理融入一台宠物每天都会靠近的生活家具。透明水仓、独立污水箱与 6L 可拆水箱，让每一次补给都清澈而有秩序。
-                    </p>
+                    <p class="eyebrow">CORE PRODUCT</p>
+                    <h2>硅基探针 · 星门回响</h2>
+                    <p>虹吸循环、毛细渗透、静音星流道与恒温暖洋层，把宇宙物理融入一台宠物每天都会靠近的生活家具。</p>
                     <div class="spec-row" aria-label="产品核心参数">
-                        <div>
-                            <strong>8°C</strong>
-                            <span>冷星水温</span>
-                        </div>
-                        <div>
-                            <strong>45°C</strong>
-                            <span>暖洋恒温</span>
-                        </div>
-                        <div>
-                            <strong>6L</strong>
-                            <span>水星球储量</span>
-                        </div>
+                        <div><strong>8°C</strong><span>冷星水温</span></div>
+                        <div><strong>45°C</strong><span>暖洋恒温</span></div>
+                        <div><strong>6L</strong><span>水星球储量</span></div>
                     </div>
                 </div>
 
@@ -103,28 +116,56 @@
         <section class="data-section" id="data">
             <div class="container data-layout">
                 <div class="data-copy" data-animate>
-                    <h2>看见恒星的健康亮度 <br>变成可追踪的数据</h2>
-                    <p>
-                        第一枚硅基探针从饮水开始，记录饮水量、频次、水温与靠近时长，经过持续观测建立专属于它的恒星健康基线。
-                    </p>
+                    <p class="eyebrow">DATA · 恒星观测</p>
+                    <h2>看见恒星的健康亮度</h2>
+                    <p>第一枚硅基探针从饮水开始，记录饮水量、频次、水温与靠近时长，持续建立专属于它的健康基线。</p>
+                    <div class="data-stats">
+                        <div class="stat"><strong data-count="12">0</strong><span>次 / 日饮水</span></div>
+                        <div class="stat"><strong data-count="32">0</strong><span>次 / 日靠近</span></div>
+                        <div class="stat"><strong data-count="180">0</strong><span>天 / 持续观测</span></div>
+                    </div>
                 </div>
 
-                <div class="data-console data-console-placeholder" data-animate aria-hidden="true"></div>
+                <div class="data-console" data-animate aria-label="饮水活动呼吸光点轨道">
+                    <div class="orbit">
+                        <div class="orbit-track">
+                            <span class="slot" style="transform: rotate(0deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(45deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(90deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(135deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(180deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(225deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(270deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(315deg)"><i></i></span>
+                        </div>
+                        <div class="orbit-pet"><img src="images/postcard-cat.png" alt="猫咪头像" loading="lazy" decoding="async"></div>
+                    </div>
+                    <p class="orbit-cap">今日活动峰值 <b>14:20</b> · 比昨日 <b>+6%</b></p>
+                </div>
             </div>
         </section>
 
         <section class="twin-section" id="twin">
             <div class="container twin-layout">
-                <div class="twin-visual twin-visual-placeholder" data-animate aria-hidden="true"></div>
+                <div class="twin-visual" data-animate aria-label="数字孪生宠物轨道">
+                    <div class="orbit orbit-sm">
+                        <div class="orbit-track">
+                            <span class="slot" style="transform: rotate(0deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(60deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(120deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(180deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(240deg)"><i></i></span>
+                            <span class="slot" style="transform: rotate(300deg)"><i></i></span>
+                        </div>
+                        <div class="orbit-pet"><img src="images/postcard-cat.png" alt="数字孪生宠物" loading="lazy" decoding="async"></div>
+                    </div>
+                </div>
 
                 <div class="twin-copy" data-animate>
-                    <h2>从维度降临 到独一无二的数字生命</h2>
-                    <p>
-                        每一只宠物都是从硅宠场域降临地球的温暖恒星。智能硬件采集的长期数据，会持续构建它的行为节律，让数字孪生拥有习惯、情绪和记忆。
-                    </p>
-                    <p>
-                        用户拥有数据的控制权，可查看、导出或删除。数字生命建立在授权、隐私和信任之上，并沿着“维度降临 → 硅基探针 → 数字孪生 → 星尘归航”持续生长。
-                    </p>
+                    <p class="eyebrow">DIGITAL TWIN · 数字孪生</p>
+                    <h2>从维度降临 · 到独一无二的数字生命</h2>
+                    <p>智能硬件采集的长期数据，持续构建它的行为节律，让数字孪生拥有习惯、情绪和记忆。</p>
+                    <p>你拥有数据的控制权：查看、导出或删除。数字生命建立在授权、隐私和信任之上。</p>
                 </div>
             </div>
         </section>
@@ -132,36 +173,68 @@
         <section class="scenes" id="scenes">
             <div class="container">
                 <div class="section-heading" data-animate>
-                    <h2>让宇宙叙事 落回真实生活</h2>
+                    <p class="eyebrow">LIFE · 生活</p>
+                    <h2>让宇宙叙事 · 落回真实生活</h2>
                     <p>离家、异常提醒、宠物记忆，这些才是恒星观测真正想守护的日常。</p>
                 </div>
 
-                <div class="scene-grid">
-                    <article class="scene-card" data-animate>
-                        <h3>离家时 恒星依然明亮</h3>
-                        <p>远程查看饮水与活动状态，不再靠猜测判断它今天是否正常，守护它的暖光场域。</p>
+                <div class="scene-grid" data-animate>
+                    <article class="scene-card">
+                        <h3>离家时，恒星依然明亮</h3>
+                        <p>远程查看饮水与活动状态，不再靠猜测判断它今天是否正常。</p>
                     </article>
-                    <article class="scene-card" data-animate>
-                        <h3>异常前 先有星光提醒</h3>
-                        <p>持续数据比单次观察更敏感，帮助主人更早发现恒星运行轨迹的变化。</p>
+                    <article class="scene-card">
+                        <h3>异常前，先有星光提醒</h3>
+                        <p>持续数据比单次观察更敏感，帮助主人更早发现轨迹变化。</p>
                     </article>
-                    <article class="scene-card" data-animate>
-                        <h3>分别后 星尘终将归航</h3>
-                        <p>把每一天的陪伴沉淀为数字记忆，让它回到属于自己的星空，继续温柔闪耀。</p>
+                    <article class="scene-card">
+                        <h3>分别后，星尘终将归航</h3>
+                        <p>把每一天的陪伴沉淀为数字记忆，让它回到属于自己的星空。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-section" id="trust">
+            <div class="container">
+                <div class="section-heading" data-animate>
+                    <p class="eyebrow">PRIVACY · 隐私与信任</p>
+                    <h2>数据属于它 · 决定权属于你</h2>
+                    <p>涉及摄像头、麦克风与行为数据，我们把透明放在第一位。</p>
+                </div>
+
+                <div class="trust-grid" data-animate>
+                    <article class="trust-card">
+                        <div class="trust-ico" aria-hidden="true">🔐</div>
+                        <h3>你授权，才采集</h3>
+                        <p>摄像头 / 麦克风开关清晰可见，默认关闭，随时一键停用。</p>
+                    </article>
+                    <article class="trust-card">
+                        <div class="trust-ico" aria-hidden="true">🛡️</div>
+                        <h3>加密传输与存储</h3>
+                        <p>数据在设备端加密后上传，云端静态加密保存。</p>
+                    </article>
+                    <article class="trust-card">
+                        <div class="trust-ico" aria-hidden="true">🖐️</div>
+                        <h3>数据控制权在你</h3>
+                        <p>随时查看、导出或删除宠物的全部数字数据。</p>
                     </article>
                 </div>
             </div>
         </section>
 
         <section class="contact-section" id="contact">
-            <div class="container contact-layout">
-                <div data-animate>
-                    <h2>预约你的第一枚硅基探针</h2>
-                    <p>成为首批体验用户，开启宠物恒星的生命观测，或获取渠道合作、产品资料和后续探针矩阵信息。</p>
-                </div>
-                <div class="contact-actions" data-animate>
-                    <a class="btn btn-primary" href="#contact" data-postcard-open>联系 Petsoul</a>
-                    <a class="btn btn-secondary" href="#hero">回到顶部</a>
+            <div class="container">
+                <div class="cta-strip" data-animate>
+                    <div class="cta-copy">
+                        <p class="eyebrow">GET STARTED</p>
+                        <h2>预约你的第一枚硅基探针</h2>
+                        <p>成为首批体验用户，或获取渠道合作、产品资料和后续探针矩阵信息。</p>
+                    </div>
+                    <div class="contact-actions">
+                        <a class="btn btn-primary" href="#contact" data-postcard-open>联系 Petsoul</a>
+                        <a class="btn btn-secondary" href="#hero">回到顶部</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -194,6 +267,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20260806-postcard2"></script>
+    <script src="js/main.js?v=20260807-warm6"></script>
 </body>
 </html>

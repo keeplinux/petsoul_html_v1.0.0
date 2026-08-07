@@ -555,3 +555,27 @@
 
 未完成事项：
 - 推送 `gh-pages` 分支并开启 GitHub Pages 后，公开访问地址预计为 `https://keeplinux.github.io/petsoul_html_v1.0.0/`。
+
+日期：2026-08-07
+阶段：温暖之光设计重构（warm-light v1）
+
+变更内容：
+- 全站配色从霓虹粉青（#ff5ea8/#66f0dc）改为暖色系：蜜桃暖金 #F0A06C 主强调、苔青 #7FB5A0 次强调、暖夜灰 #1A1512 深背景。
+- 新增完整导航栏（品牌 + 锚点 + CTA + 移动端汉堡菜单）。
+- 重写首页结构：Hero（双 CTA + 浮动产品）、产品卡（光晕 + 3D 微倾）、数据区呼吸光点轨道、数字孪生区、场景区、新增隐私信任区、CTA 收口。
+- 标题/正文/数字全站统一为汇文明朝体（Huiwen Mincho）；从 GitHub 官方仓库（bosswnx/huiwenmincho-improved，Public Domain）下载完整字体，用 fontTools 重新生成覆盖全站 299 个汉字的 woff2 子集（原子集仅 14 字，标题混搭回退宋体）。
+- 恢复鼠标"拨开背景"墨迹擦除特效（Canvas，借鉴 mimo.xiaomi.com/coder），遮罩改为不透明纯黑：静止纯黑、鼠标划过露出饮水机背景图。
+- 大标题中文逗号统一替换为「·」实心圆点；标题字体样式统一。
+- 字体 URL 加 ?v= 缓存版本号，规避 Chrome 强缓存导致加载旧字体。
+
+决策原因：
+- 用户要求官网融合"简约/大气/科技感/温馨/宠物"五要素，批准 design-proposal/style-mockup.html 温暖之光方案。
+- 用户明确要求恢复原背景与鼠标拨开特效、静止纯黑背景、全站统一汇文明朝体。
+
+影响范围：
+- static/{index.html, css/style.css, js/main.js, fonts/huiwen-mincho-subset.woff2}
+- docs/ 对应文件与字体（GitHub Pages 副本）
+- 新增 design-proposal/（设计方案与样式图）
+
+未完成事项：
+- Three.js 3D 产品展示（static/models/ 仍为空）；产品页/品牌页/支持页/合作页（第一阶段仅首页）。
