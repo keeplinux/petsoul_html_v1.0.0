@@ -501,14 +501,9 @@ section {
 .prod-card {
     position: relative;
     padding: 2rem 1.6rem 1.8rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)), var(--surface);
-    box-shadow: var(--shadow);
-    overflow: hidden;
     --mx: 50%;
     --my: 50%;
-    transition: transform 0.45s, border-color 0.3s, box-shadow 0.3s;
+    transition: transform 0.45s;
 }
 
 .prod-card::before {
@@ -528,9 +523,7 @@ section {
 }
 
 .prod-card:hover {
-    transform: perspective(900px) rotateX(3deg) rotateY(-3deg) translateY(-4px);
-    border-color: rgba(240, 160, 108, 0.35);
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42), 0 0 34px rgba(240, 160, 108, 0.14);
+    transform: translateY(-4px);
 }
 
 .prod-card:hover::before {
@@ -613,9 +606,6 @@ section {
 
 .spec-row div {
     padding: 1.05rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.035);
 }
 
 .spec-row strong {
@@ -664,19 +654,12 @@ section {
     object-fit: contain;
     object-position: center bottom;
     padding: 0.6rem;
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow);
     cursor: pointer;
     transform-origin: center bottom;
     transition:
         transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
         opacity 320ms ease,
-        filter 320ms ease,
-        background 320ms ease,
-        border-color 320ms ease,
-        box-shadow 420ms ease;
+        filter 320ms ease;
 }
 
 .sample-gallery:has(.sample-image:hover) .sample-image:not(:hover) {
@@ -688,20 +671,12 @@ section {
 .sample-image:hover {
     z-index: 2;
     transform: scale(1.06);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(240, 160, 108, 0.4);
-    box-shadow:
-        0 22px 58px rgba(0, 0, 0, 0.26),
-        0 0 34px rgba(240, 160, 108, 0.22);
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 24px rgba(240, 160, 108, 0.22));
 }
 
 /* ---------- 数据区 ---------- */
 .data-console {
     padding: 2.4rem 1.6rem 2rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(160deg, rgba(240, 160, 108, 0.06), rgba(255, 255, 255, 0.01)), var(--surface);
-    box-shadow: var(--shadow);
 }
 
 .data-stats {
@@ -715,9 +690,6 @@ section {
     flex: 1;
     min-width: 120px;
     padding: 1.1rem 1rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.03);
 }
 
 .data-stats .stat strong {
@@ -802,14 +774,10 @@ section {
 
 /* ---------- 数字孪生 ---------- */
 .twin-visual {
-    min-height: 360px;
+    min-height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(160deg, rgba(240, 160, 108, 0.06), rgba(127, 181, 160, 0.03)), var(--surface);
-    box-shadow: var(--shadow);
 }
 
 .orbit-sm {
@@ -833,13 +801,9 @@ section {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012)), var(--surface);
-    box-shadow: var(--shadow);
     --mx: 50%;
     --my: 50%;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
 }
 
 .scene-card::before {
@@ -860,8 +824,6 @@ section {
 
 .scene-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(240, 160, 108, 0.3);
-    box-shadow: 0 22px 64px rgba(0, 0, 0, 0.3);
 }
 
 .scene-card:hover::before {
@@ -889,10 +851,6 @@ section {
 
 .trust-card {
     padding: 1.7rem 1.6rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(160deg, rgba(127, 181, 160, 0.08), rgba(127, 181, 160, 0.02)), var(--surface);
-    box-shadow: var(--shadow);
 }
 
 .trust-ico {
@@ -921,10 +879,6 @@ section {
     justify-content: space-between;
     gap: 1.4rem;
     padding: 2.8rem 3rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(150deg, rgba(240, 160, 108, 0.1), rgba(240, 160, 108, 0.02) 55%), var(--surface);
-    box-shadow: var(--shadow);
 }
 
 .cta-copy {
@@ -1044,25 +998,6 @@ section {
     background: radial-gradient(circle, rgba(127, 181, 160, 0.3), transparent 68%);
 }
 
-.postcard-close {
-    position: absolute;
-    top: -0.9rem;
-    right: -0.9rem;
-    z-index: 5;
-    width: 2.8rem;
-    height: 2.8rem;
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    color: #fff;
-    background: rgba(39, 32, 26, 0.88);
-    font-family: Arial, sans-serif;
-    font-size: 1.7rem;
-    line-height: 1;
-    cursor: pointer;
-}
-
 .postcard-kicker,
 .postcard-stamp,
 .postcard-signature {
@@ -1081,13 +1016,14 @@ section {
 .postcard-paper h2 {
     position: relative;
     z-index: 1;
-    max-width: 500px;
+    max-width: none;
     margin-top: 4.5rem;
     color: #211c2a;
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-size: clamp(1.7rem, 3.5vw, 2.8rem);
     font-weight: 500;
     line-height: 1.2;
+    white-space: nowrap;
 }
 
 .postcard-vision,
@@ -1349,9 +1285,9 @@ body.postcard-open {
     }
 
     .postcard-paper h2 {
-        max-width: 78%;
+        max-width: none;
         margin-top: 4rem;
-        font-size: clamp(1.65rem, 8vw, 2.5rem);
+        font-size: clamp(1.25rem, 5.2vw, 1.6rem);
     }
 
     .postcard-cat {

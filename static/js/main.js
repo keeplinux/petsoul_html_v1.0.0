@@ -302,9 +302,12 @@ function initPostcardModal() {
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('postcard-open');
-        modal.querySelector('.postcard-close')?.focus();
     });
 
+    // 点击卡片任意位置退出
+    modal.querySelector('.postcard-dialog')?.addEventListener('click', close);
+
+    // 背景遮罩退出
     modal.querySelectorAll('[data-postcard-close]').forEach((button) => {
         button.addEventListener('click', close);
     });
