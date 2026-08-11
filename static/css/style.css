@@ -14,17 +14,17 @@
 }
 
 @font-face {
-    font-family: "MiSans";
-    src: url("../fonts/misans-subset.woff2?v=2") format("woff2");
+    font-family: "Cinzel Decorative";
+    src: url("../fonts/cinzel-decorative-400.woff2?v=1") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "MiSans Medium";
-    src: url("../fonts/misans-medium-nav-subset.woff2?v=2") format("woff2");
-    font-weight: 500;
+    font-family: "Cinzel Decorative";
+    src: url("../fonts/cinzel-decorative-700.woff2?v=1") format("woff2");
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
@@ -52,8 +52,8 @@
     --nav-height: 4.75rem;
 
     --font-serif: "Huiwen Mincho", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
-    --font-sans: "Huiwen Mincho", "MiSans", "PingFang SC", -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
-    --font-misans: var(--font-sans);
+    --font-sans: "Huiwen Mincho", "PingFang SC", -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
+    --font-body: var(--font-sans);
     --font-geo: "Huiwen Mincho", "Questrial", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -143,12 +143,12 @@ img {
 a {
     color: inherit;
     text-decoration: none;
-    font-family: var(--font-misans);
+    font-family: var(--font-body);
 }
 
 button {
     font: inherit;
-    font-family: var(--font-misans);
+    font-family: var(--font-body);
 }
 
 .container {
@@ -191,34 +191,21 @@ button {
     gap: 0.7rem;
     color: var(--text);
     font-size: 1.35rem;
-    font-weight: 900;
 }
 
 .brand-mark {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    position: relative;
-    border: 1px solid rgba(240, 160, 108, 0.72);
+    width: 34px;
+    height: 34px;
+    display: block;
     border-radius: 50%;
-    box-shadow: 0 0 24px rgba(240, 160, 108, 0.35);
+    filter: drop-shadow(0 0 12px rgba(240, 160, 108, 0.38));
 }
 
-.brand-mark::before,
-.brand-mark::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-}
-
-.brand-mark::before {
-    inset: 7px;
-    border: 1px solid rgba(127, 181, 160, 0.82);
-}
-
-.brand-mark::after {
-    inset: 12px;
-    background: var(--peach);
+.brand-text {
+    font-family: "Cinzel Decorative", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
 }
 
 .nav-links {
@@ -402,7 +389,7 @@ section {
 .cta-copy p:not(.eyebrow) {
     margin-top: 0.75rem;
     color: var(--muted);
-    font-family: var(--font-misans);
+    font-family: var(--font-body);
     font-size: 1rem;
 }
 
@@ -905,14 +892,15 @@ section {
 .footer-layout {
     display: grid;
     gap: 1.2rem;
-    font-family: var(--font-misans);
+    font-family: var(--font-body);
 }
 
 .footer-layout strong {
     display: block;
-    font-family: var(--font-serif);
+    font-family: "Cinzel Decorative", Georgia, "Times New Roman", serif;
     font-size: 1.3rem;
-    font-weight: 500;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     color: var(--text);
 }
 
@@ -1001,7 +989,7 @@ section {
 .postcard-kicker,
 .postcard-stamp,
 .postcard-signature {
-    font-family: var(--font-misans);
+    font-family: "Cinzel Decorative", Georgia, "Times New Roman", serif;
     letter-spacing: 0.12em;
 }
 
@@ -1044,7 +1032,7 @@ section {
     max-width: 470px;
     margin-top: 1.15rem;
     color: rgba(33, 28, 42, 0.72);
-    font-family: var(--font-misans);
+    font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.85;
 }
