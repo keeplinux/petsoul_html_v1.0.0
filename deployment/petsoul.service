@@ -1,0 +1,35 @@
+# ============================================================
+# Petsoul axum 服务 systemd 单元（方案 A）
+# 放置路径：/etc/systemd/system/petsoul.service
+# 启用：sudo systemctl daemon-reload
+#       sudo systemctl enable --now petsoul
+# 说明：以非特权用户 petsoul 运行；二进制与 static 在 /opt/petsoul/
+# ============================================================
+[Unit]
+Description=Petsoul Axum Server
+After=network.target
+
+[Service]
+Type=simple
+User=petsoul
+Group=petsoul
+WorkingDirectory=/opt/petsoul
+ExecStart=/opt/petsoul/bin/petsoul-website
+Environment=PORT=3000
+
+# 崩溃自愈
+Restart=always
+RestartSec=3
+
+# 日志追加写入文件
+StandardOutput=append:/opt/petsoul/logs/stdout.log
+StandardError=append:/opt/petsoul/logs/stderr.log
+
+# 资源与安全加固
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
