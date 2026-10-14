@@ -1,3 +1,5 @@
 /target
 .workbuddy/
 .DS_Store
+.local-secrets/
+dsh-usage/
